@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="以八维心性测问，推演你在中晚唐官僚体系中的身份结衔 —— 测测你在唐朝能当什么官。" />
+<meta name="theme-color" content="#f4edda" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="君居何位 · 测测你在唐朝能当什么官" />
+<meta property="og:description" content="以八维心性测问，推演你在中晚唐官僚体系中的身份结衔。" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%239E3B2F'/%3E%3Crect%20x='16'%20y='16'%20width='32'%20height='32'%20rx='3'%20fill='none'%20stroke='%23f4edda'%20stroke-width='4'/%3E%3Cpath%20d='M24%2032h16M32%2024v16'%20stroke='%23f4edda'%20stroke-width='4'%20stroke-linecap='round'/%3E%3C/svg%3E" />
+<title>君居何位 · 测测你在唐朝能当什么官</title>
+<style>
+  :root{
+    --zhu:#9E3B2F;          /* 赭红 */
+    --zhu-deep:#7a2a1f;
+    --mo:#1c1713;           /* 墨黑 */
+    --jin:#c2a24b;          /* 鎏金 */
+    --jin-deep:#9a7c2e;
+    --paper:#f4edda;        /* 宣纸米黄 */
+    --paper-deep:#e8dcc0;
+    --ink:#3a2f25;
+    --line:#cbb98a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"FangSong","仿宋","STFangsong","Songti SC","SimSun","Noto Serif SC",serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 18% 20%, rgba(158,59,47,.10), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(194,162,75,.12), transparent 42%),
+      radial-gradient(circle at 50% 50%, rgba(60,50,35,.06), transparent 70%),
+      var(--paper);
+    background-attachment:fixed;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  .scroll{
+    position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 6px, rgba(90,70,40,.015) 6px 7px),
+      repeating-linear-gradient(90deg, transparent 0 6px, rgba(90,70,40,.012) 6px 7px);
+  }
+  .frame{
+    position:relative;z-index:1;max-width:860px;margin:0 auto;padding:28px 18px 60px;
+  }
+  .deco-bar{
+    height:14px;border-radius:8px;margin:0 auto 22px;max-width:560px;
+    background:
+      linear-gradient(90deg, transparent, var(--jin) 20%, var(--jin) 80%, transparent),
+      linear-gradient(90deg, var(--zhu) 0 50%, var(--zhu-deep) 50% 100%);
+    background-blend-mode:multiply;
+    box-shadow:0 2px 6px rgba(0,0,0,.25);
+  }
+  .card{
+    position:relative;background:linear-gradient(180deg,#faf4e6,var(--paper));
+    border:2px solid var(--line);
+    border-radius:6px;
+    box-shadow:0 6px 24px rgba(60,40,20,.18), inset 0 0 40px rgba(194,162,75,.08);
+    padding:30px 26px;
+  }
+  .card::before,.card::after{
+    content:"";position:absolute;width:38px;height:38px;pointer-events:none;
+  }
+  .card::before{left:10px;top:10px;border-left:3px solid var(--zhu);border-top:3px solid var(--zhu);}
+  .card::after{right:10px;bottom:10px;border-right:3px solid var(--zhu);border-bottom:3px solid var(--zhu);}
+  .corner{position:absolute;width:26px;height:26px;opacity:.85}
+  .corner.br{right:10px;top:10px;border-right:3px solid var(--zhu);border-top:3px solid var(--zhu);}
+  .corner.bl{left:10px;bottom:10px;border-left:3px solid var(--zhu);border-bottom:3px solid var(--zhu);}
+
+  h1{font-family:"KaiTi","楷体","STKaiti","Noto Serif SC",serif;font-weight:700}
+  .cover-title{
+    text-align:center;font-size:44px;letter-spacing:8px;color:var(--mo);
+    text-shadow:0 1px 0 #fff, 0 2px 8px rgba(158,59,47,.25);
+  }
+  .cover-sub{
+    text-align:center;color:var(--zhu);font-size:18px;letter-spacing:4px;margin:10px 0 4px;
+  }
+  .cover-note{text-align:center;color:#7a6a52;font-size:14px;margin-bottom:26px}
+  .ver-group{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:26px 0 6px}
+  .ver-btn{
+    cursor:pointer;border:1px solid var(--line);background:#fffdf6;border-radius:6px;
+    padding:14px 18px;min-width:150px;text-align:center;transition:.2s;
+  }
+  .ver-btn:hover{border-color:var(--zhu);box-shadow:0 0 0 1px var(--zhu)}
+  .ver-btn.active{background:var(--zhu);color:#fff;border-color:var(--zhu);box-shadow:0 4px 14px rgba(158,59,47,.35)}
+  .ver-btn b{display:block;font-size:20px;letter-spacing:3px}
+  .ver-btn span{font-size:13px;opacity:.85}
+  .start-btn{
+    display:block;margin:24px auto 6px;cursor:pointer;font-family:inherit;
+    font-size:22px;letter-spacing:8px;padding:14px 54px;border-radius:6px;
+    color:#f7e8c8;background:linear-gradient(180deg,var(--zhu),var(--zhu-deep));
+    border:1px solid #5a1e14;box-shadow:0 5px 16px rgba(158,59,47,.4);
+    transition:.2s;
+  }
+  .start-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(158,59,47,.5)}
+
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .quiz-head .tier-tag{color:var(--zhu);font-size:15px;letter-spacing:2px}
+  .progress-wrap{height:16px;background:#e4d7b6;border-radius:10px;overflow:hidden;border:1px solid var(--line);margin-bottom:6px}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--jin),var(--jin-deep));transition:width .35s ease;box-shadow:inset 0 0 6px rgba(255,255,255,.4)}
+  .progress-num{text-align:right;font-size:13px;color:#7a6a52}
+  .q-main{margin:22px 0 8px;font-size:20px;line-height:1.9;letter-spacing:.5px}
+  .q-main .q-idx{color:var(--zhu);font-family:"KaiTi",serif;margin-right:8px}
+  .q-dim{font-size:13px;color:#a08a5c;margin-bottom:14px;letter-spacing:1px}
+  .q-hint{min-height:22px;color:var(--zhu);font-size:14px;letter-spacing:1px;margin:2px 0 2px}
+  .q-hint.flash{animation:hintFlash .5s ease}
+  @keyframes hintFlash{0%{opacity:0}30%{opacity:1}100%{opacity:1}}
+  .opt{
+    display:block;width:100%;text-align:left;cursor:pointer;font-family:inherit;
+    background:#fffdf4;border:1px solid var(--line);border-radius:6px;
+    padding:13px 16px;margin-bottom:12px;font-size:17px;line-height:1.7;transition:.18s;
+  }
+  .opt .opt-key{display:inline-block;min-width:26px;color:var(--zhu);font-family:"KaiTi",serif;font-weight:700}
+  .opt:hover{border-color:var(--zhu);box-shadow:0 0 0 1px var(--zhu), 0 3px 12px rgba(158,59,47,.18)}
+  .opt.sel{background:#f7ecdc;border-color:var(--zhu-deep);box-shadow:0 0 0 1px var(--zhu-deep)}
+  .quiz-nav{display:flex;justify-content:space-between;margin-top:20px;gap:12px}
+  .nav-btn{
+    cursor:pointer;font-family:inherit;font-size:16px;letter-spacing:3px;
+    padding:10px 26px;border-radius:6px;border:1px solid var(--line);background:#fffdf4;color:var(--ink);transition:.18s;
+  }
+  .nav-btn:hover{border-color:var(--zhu);color:var(--zhu)}
+  .nav-btn.primary{background:var(--zhu);color:#fff;border-color:var(--zhu-deep)}
+  .nav-btn:disabled{opacity:.4;cursor:not-allowed}
+
+  .loading-wrap{text-align:center;padding:40px 10px}
+  .compass{
+    width:120px;height:120px;margin:10px auto 24px;position:relative;
+    border:3px solid var(--jin);border-radius:50%;background:radial-gradient(circle,#f7ecd6 30%,#e6d4a8);
+    box-shadow:inset 0 0 30px rgba(194,162,75,.4), 0 4px 18px rgba(0,0,0,.2);
+    animation:spin 2.6s linear infinite;
+  }
+  .compass::before{
+    content:"勘";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    font-family:"KaiTi",serif;font-size:40px;color:var(--zhu);
+  }
+  .compass::after{
+    content:"";position:absolute;left:50%;top:2px;transform:translateX(-50%);
+    border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:20px solid var(--zhu);
+    transform-origin:50% 100%;
+  }
+  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .loading-tip{color:var(--zhu);letter-spacing:5px;font-size:18px;font-family:"KaiTi",serif}
+
+  .res-head{text-align:center;margin-bottom:18px}
+  .res-type{font-family:"KaiTi",serif;font-size:15px;letter-spacing:2px;color:var(--jin-deep);margin-bottom:6px}
+  .res-type-code{font-family:"Georgia",serif;font-size:30px;letter-spacing:4px;color:var(--mo);font-weight:700}
+  .res-rank{display:inline-block;margin-top:6px;padding:2px 14px;border:1px solid var(--zhu);border-radius:20px;color:var(--zhu);font-size:13px;letter-spacing:2px}
+  .seal-line{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px 0}
+  .seal-line i{flex:1;height:1px;background:var(--line);max-width:120px}
+  .type-legend{background:#fbf4e2;border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:6px 0 8px;font-size:14.5px;line-height:1.9}
+  .type-legend .tl-lead{color:#6b5b42;font-size:13.5px;margin-bottom:8px}
+  .dim-row{padding:6px 0;border-bottom:1px dashed var(--line)}
+  .dim-row:last-child{border-bottom:none}
+  .dim-name{font-family:"KaiTi",serif;color:var(--mo);font-size:13.5px;margin-bottom:4px;letter-spacing:1px}
+  .dim-line{display:flex;align-items:center;gap:10px}
+  .dim-win{color:var(--zhu);font-family:"KaiTi",serif;min-width:104px;text-align:right;font-size:14.5px}
+  .dim-win b{color:var(--zhu-deep);font-family:Georgia,serif}
+  .dim-lose{color:#9a8763;font-family:"KaiTi",serif;min-width:104px;font-size:14px}
+  .dim-lose b{font-family:Georgia,serif}
+  .dim-bar{flex:1;height:10px;background:#e4d7b6;border-radius:6px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.12)}
+  .dim-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--jin),var(--zhu));border-radius:6px}
+  .attire-box{background:#fbf4e2;border:1px solid var(--line);border-radius:6px;padding:14px 16px;text-align:center}
+  .attire-img{max-width:240px;margin:0 auto}
+  .attire-img svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3px 6px rgba(60,40,20,.18))}
+  .attire-desc{font-size:15px;line-height:2;color:#4a3c2a;text-align:left;margin-top:10px}
+  .res-full-title{
+    font-family:"KaiTi","楷体",serif;font-size:24px;line-height:1.9;letter-spacing:2px;color:var(--zhu-deep);
+    padding:16px 12px;margin:10px 0 18px;background:#fbf3df;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .sec-title{
+    font-family:"KaiTi",serif;font-size:20px;color:var(--zhu);letter-spacing:3px;margin:22px 0 8px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  .brief-text{font-size:17px;line-height:2}
+  details.item{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;background:#fffdf4;overflow:hidden}
+  details.item summary{
+    cursor:pointer;list-style:none;padding:13px 16px;font-family:"KaiTi",serif;
+    font-size:18px;color:var(--mo);letter-spacing:1px;position:relative;
+  }
+  details.item summary::-webkit-details-marker{display:none}
+  details.item summary::after{content:"＋";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--zhu)}
+  details.item[open] summary::after{content:"－"}
+  details.item summary .ig{color:var(--zhu);font-size:13px;margin-left:8px}
+  details.item .body{padding:4px 18px 16px;font-size:16px;line-height:2;border-top:1px dashed var(--line)}
+  .body .field{margin-bottom:10px}
+  .body .field b{color:var(--zhu);font-family:"KaiTi",serif;margin-right:6px;letter-spacing:1px}
+  .overall{padding:4px 6px;font-size:16px;line-height:2.1;color:#2e2519}
+  .jiexian-intro{
+    margin:16px auto 4px;max-width:660px;text-align:left;
+    background:#fbf4e2;border:1px solid var(--line);border-left:4px solid var(--zhu);
+    border-radius:6px;padding:14px 18px;color:#4a3c2a;font-size:15px;line-height:1.95;
+  }
+  .jiexian-intro b{font-family:"KaiTi",serif;color:var(--zhu);letter-spacing:2px;font-size:16px}
+  .jiexian-intro p{margin-top:8px}
+  .jiexian-intro em{font-style:normal;color:var(--zhu-deep);font-family:"KaiTi",serif}
+  .structure-box{background:#fbf4e2;border:1px solid var(--line);border-radius:6px;padding:14px 18px;font-size:15.5px;line-height:1.9}
+  .structure-box p.lead{margin-bottom:10px;color:#4a3c2a}
+  .layer-row{display:flex;gap:10px;padding:6px 2px;border-bottom:1px dashed var(--line);align-items:baseline;flex-wrap:wrap}
+  .layer-row:last-child{border-bottom:none}
+  .layer-row .lr-no{font-family:"KaiTi",serif;color:var(--zhu);min-width:56px;font-size:13.5px}
+  .layer-row .lr-name{font-family:"KaiTi",serif;color:var(--mo);font-weight:700;min-width:76px}
+  .layer-row .lr-val{color:var(--zhu-deep);min-width:160px}
+  .layer-row .lr-role{color:#7a6a52;font-size:14px;flex:1;min-width:190px}
+  .res-nav{display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+  .hidden{display:none!important}
+  .footer{margin-top:30px;text-align:center;color:#8a7858;font-size:13px;letter-spacing:1px}
+
+  @media (max-width:560px){
+    .cover-title{font-size:32px;letter-spacing:4px}
+    .card{padding:22px 16px}
+    .res-full-title{font-size:19px}
+    h1{font-size:26px}
+  }
+</style>
+</head>
+<body>
+<div class="scroll"></div>
+<div class="frame">
+
+  <!-- ============ 封面页 ============ -->
+  <section id="cover" class="card" style="margin-top:30px">
+    <div class="cover-title">君 居 何 位</div>
+    <div class="cover-sub">—— 测测你在唐朝能当什么官 ——</div>
+    <div class="cover-note">以八维心性测问，推演你在中晚唐官僚体系中的身份结衔</div>
+    <div class="deco-bar"></div>
+    <div class="jiexian-intro">
+      <b>何谓“结衔”？</b>
+      <p>唐人任官，一身常兼数衔。所谓“结衔”，即把一人所带的各种官称依次连缀、书于告身（任命文书）之上，其序大致为：<em>散官</em>定本品阶、<em>检校官</em>为荣誉加官、<em>宪衔</em>示风宪威望、<em>职事官</em>为实际职务与驻地、<em>使职</em>才是真正的实权所在，最后殿以<em>勋官</em>、<em>爵位与食邑</em>以示功荣。</p>
+      <p>其中散官、检校、宪衔、勋、爵多为虚衔，职事与使职方为实职。读一串结衔，便可看出一人在中晚唐官僚体系中的品阶、资历、威望、驻地与实权。</p>
+    </div>
+    <div style="text-align:center;color:#7a6a52;font-size:15px;letter-spacing:2px;margin:22px 0 4px">择 测 试 版 本</div>
+    <div class="ver-group" id="verGroup">
+      <div class="ver-btn" data-tier="brief"><b>简洁版</b><span>24 题 · 快速体验</span></div>
+      <div class="ver-btn active" data-tier="normal"><b>正常版</b><span>64 题 · 标准测试</span></div>
+      <div class="ver-btn" data-tier="full"><b>完整版</b><span>124 题 · 深度推演</span></div>
+    </div>
+    <button class="start-btn" id="startBtn">开始推演</button>
+    <div style="text-align:center;color:#a08a5c;font-size:13px;margin-top:18px" id="resumeHint"></div>
+  </section>
+
+  <!-- ============ 答题页 ============ -->
+  <section id="quiz" class="card hidden">
+    <div class="quiz-head">
+      <span class="tier-tag" id="tierTag">正常版 · 六十四问</span>
+      <span class="tier-tag" id="tierDim" style="opacity:.7"></span>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-num" id="progressNum">1 / 64</div>
+    <div class="q-main" id="qText"></div>
+    <div class="q-dim" id="qDim"></div>
+    <div id="qOptions"></div>
+    <div class="q-hint" id="qHint"></div>
+    <div class="quiz-nav">
+      <button class="nav-btn" id="prevBtn">上一题</button>
+      <button class="nav-btn primary" id="nextBtn">下一题</button>
+    </div>
+  </section>
+
+  <!-- ============ 计算页 ============ -->
+  <section id="loading" class="card hidden">
+    <div class="loading-wrap">
+      <div class="compass"></div>
+      <div class="loading-tip">推 演 中 ……</div>
+      <div style="color:#7a6a52;font-size:14px;margin-top:14px">罗盘定分 · 考功叙资 · 铨注结衔</div>
+    </div>
+  </section>
+
+  <!-- ============ 结果页 ============ -->
+  <section id="result" class="card hidden">
+    <div class="seal-line"><i></i><span style="color:var(--zhu);font-family:'KaiTi',serif">敕 授 告 身</span><i></i></div>
+    <div class="res-full-title" id="resFullTitle"></div>
+    <div class="res-head">
+      <div class="res-type">八维心性结衔</div>
+      <div class="res-type-code" id="resTypeCode"></div>
+      <div style="margin-top:6px"><span class="res-rank" id="resRank"></span></div>
+    </div>
+    <div class="type-legend" id="resTypeLegend"></div>
+    <div class="sec-title">冠 服 图</div>
+    <div class="attire-box">
+      <div class="attire-img" id="resAttire"></div>
+      <p class="attire-desc" id="resAttireDesc"></p>
+    </div>
+    <div class="sec-title">结 衔 释 义</div>
+    <div class="structure-box" id="resStructure"></div>
+    <div class="sec-title">简 要 解 释</div>
+    <p class="brief-text" id="resBrief"></p>
+    <div class="sec-title">详 细 解 释</div>
+    <div id="resDetail"></div>
+    <div class="sec-title">总 体 评 价</div>
+    <p class="overall" id="resOverall"></p>
+    <div class="res-nav">
+      <button class="nav-btn primary" id="retestBtn">重新测试</button>
+      <button class="nav-btn" id="copyBtn">复制结衔文本</button>
+    </div>
+  </section>
+
+  <div class="footer">君居何位 · 测测你在唐朝能当什么官 · 单页离线运行 · 依八维心性推演制度结衔</div>
+</div>
+
+<script>
+/* =========================================================================
+ * 君居何位 · 测测你在唐朝能当什么官
+ * 设计总纲：
+ *   八维心性 (每维两极) -> 计分定取向 -> 归并聚类 -> 依中晚唐制度映射各层头衔
+ *   散官(阶) -> 检校官(资历虚衔) -> 宪衔(风宪威望) -> 职事官(驻地职务)
+ *   -> 使职(实权) -> 勋官(军功) -> 爵位(荣誉) -> 食邑(虚封)
+ * ========================================================================= */
+
+/* ---------- 八维维度定义 ---------- */
+const DIM_ORDER = [
+  {pair:'KS', a:'K', b:'S', name:'进取方式', aName:'开拓', bName:'守成'},
+  {pair:'JF', a:'J', b:'F', name:'权力取向', aName:'集权', bName:'分权'},
+  {pair:'GR', a:'G', b:'R', name:'行事风格', aName:'刚直', bName:'圆融'},
+  {pair:'WM', a:'W', b:'M', name:'价值重心', aName:'事功', bName:'名节'},
+  {pair:'DI', a:'D', b:'I', name:'人际模式', aName:'结党', bName:'独立'},
+  {pair:'VU', a:'V', b:'U', name:'知识偏好', aName:'文治', bName:'武略'},
+  {pair:'AP', a:'A', b:'P', name:'风险态度', aName:'激进', bName:'审慎'},
+  {pair:'CL', a:'C', b:'L', name:'忠诚对象', aName:'中央', bName:'地方'},
+];
+
+/* 辅测维度轮换表（正常版/完整版在「主测」之外，按题序轮换施加半权辅测，体现多重取向）*/
+const POLE_LIST = ['K','S','J','F','G','R','W','M','D','I','V','U','A','P','C','L'];
+
+/* ---------- 题库工具 ---------- */
+/* Q(题干, [选项A, 计分], [选项B, 计分], ...)
+ * 计分可为 'K'（单极权重1）或 {K:2, J:1}（多极加权） */
+function Q(t, ...opts){
+  return { t, o: opts.map(([x,s]) => ({ x, s: (typeof s === 'string') ? {[s]:1} : s })) };
+}
+
+/* ---------- 题库（每维 12 题，共 96） ---------- */
+const POOL = {
+  /* 进取方式 开拓 K / 守成 S */
+  KS: [
+    Q('边镇屯粮渐足，幕府议欲主动出塞击敌以固边防。你主张：',['主动出击、以固边防','K'],['固守城池、养精蓄锐','S'],['相机出塞、敢冒其险','A']),
+    Q('你受命治理一处新附之地，荒田连片、户口稀少。你倾向于：',['大规模开垦、移民实边','K'],['维持现状、恤民休养','S'],['但求实效、不计广狭','W']),
+    Q('邻镇遣使愿与你结盟共抗外敌，然其素来反复无常。你：',['主动结盟、扩张影响','K'],['谨慎观望、不轻举妄动','S'],['但求守境、不慕远略','M'],['结盟而不失自主','I']),
+    Q('朝廷加授你兼领邻州，然两地相隔、鞭长莫及。你：',['欣然受命以展抱负','K'],['力辞不受以免力不从心','S'],['奉朝命而行、不敢自专','C']),
+    Q('管内连年丰稔、府库渐盈。你打算：',['兴修水利、扩大生产','K'],['储存府库以备灾年','S'],['开边屯田、以充军实','U']),
+    Q('敌军犯边，斥候报其势略强于己。你决意：',['出奇兵先发制人','K'],['坚壁清野以待援军','S'],['先遣斥候、探明虚实再进','P'],['不顾强弱、决一死战','A']),
+    Q('朝廷诏令讨伐叛乱藩镇，诸镇或观望、或应命。你：',['率先请缨、进取立功','K'],['整备而后动、谋定后战','S'],['奉朝命而行、唯谨唯慎','C']),
+    Q('你拓得一片新垦之地，当如何措置：',['另设新县、拓展管辖','K'],['归并旧县、稳守规模','S'],['分层而治、新旧并存','F']),
+    Q('边贸渐兴、商旅辐辏，利之所在。你：',['广开互市、招商兴利','K'],['量力而行、以防生乱','S'],['厚利可图、敢冒其险','A'],['利之所在、谨慎图之','P']),
+    Q('幕府老将建言大举扩军、开边拓土。你：',['大举扩军、开边拓土','K'],['精兵简政、慎用民力','S'],['集中兵权、归于幕府','J']),
+    Q('境内新发现铁矿，足以富镇强兵。你：',['开矿冶铁、富镇强兵','K'],['缓图不急、以免劳民','S'],['但求实效、以充国用','W']),
+    Q('朝廷征你入朝为官，去留关乎前程。你：',['趁机进取朝堂','K'],['固守方镇根基','S'],['应召而往、以观朝局','C'],['权衡进退、以全名节','M']),
+    Q('边帅欲联络诸镇共推盟主，众意属你。你：',['欣然主盟、统摄诸镇','K'],['逊谢不居、各守其境','S'],['名为盟主、实存观望','P']),
+    Q('你将赴任新镇，前任遗政多蔽、积弊待厘。你：',['另立新规、雷厉更张','K'],['因循旧章、徐图更革','S'],['先察民情、再定去取','W']),
+    Q('有人言开边之利、可致富强。你：',['力主开边、进取不已','K'],['量力守境、不为已甚','S'],['审其利害、迟而后动','P'],['开边利国，虽险不避','A']),
+  ],
+  /* 权力取向 集权 J / 分权 F */
+  JF: [
+    Q('幕府诸将争功、赏罚难明。你：',['独断专行、统一调度','J'],['分派职权、各司其职','F'],['论功行赏、以法绳之','G']),
+    Q('州县官吏请命自专、径行其事。你：',['收回大权、由府统管','J'],['放权州县、分层而治','F'],['试而后任、察其能否','P']),
+    Q('军中议事、众说纷纭而久不能决。你：',['一言而决','J'],['集思广益','F'],['亲加裁断、不假他人','J'],['各述所见、择善而从','F']),
+    Q('藩镇与朝廷关系微妙、诏命屡至。你：',['便宜行事、一切自专','J'],['尊奉朝廷、分忧共治','F'],['奉表请命、以朝制为归','C']),
+    Q('财务大权关乎全军之命脉。你：',['亲自总揽','J'],['委任能吏分掌','F'],['奏请朝廷差官、由中央主之','C']),
+    Q('军中将领任免、众议不一。你：',['亲擢亲信','J'],['论功议定','F'],['果断易置、不避非议','A'],['察其忠勇、徐图更替','P']),
+    Q('处理属州事务、繁剧难以周知。你：',['事必躬亲','J'],['责成州牧','F'],['峻法督责、务求必成','G']),
+    Q('幕职僚佐各献计策、取舍在人。你：',['独取己见','J'],['兼听而从','F'],['分任群僚、共议其行','F']),
+    Q('朝廷诏令与镇中便宜之事时有相左。你：',['从权便宜','J'],['遵行不逾','F'],['先计利害、再定从违','W'],['援引旧例、慎重将命','P']),
+    Q('朝廷与方镇争财赋之权、各不相让。你：',['尽收利权、悉归幕府','J'],['分掌诸司、各任其责','F'],['上供朝廷、以固恩宠','C']),
+    Q('军令传达、事关迅捷。你：',['层层亲辖','J'],['分而治之','F'],['申明纪律、令行禁止','G']),
+    Q('遇事犹豫、众议未协。你：',['乾纲独断','J'],['交议共决','F'],['咨访耆旧、务合礼法','M'],['当机立断、不稍迟疑','A']),
+    Q('你将新开幕府，僚属之权如何分配：',['权归幕主、佐贰不过奉命','J'],['分曹理事、各专其责','F'],['视才而授、不拘一格','I']),
+    Q('属将邀功请赏、越次求迁。你：',['峻拒之、以肃纪纲','J'],['循资而授、不为破例','F'],['稍惬其意、以安其心','R'],['择其有功者、特达擢之','W']),
+    Q('军政财赋，事权宜否归一：',['军政财赋尽归于己','J'],['各设专司、分理其事','F'],['请朝廷分置、以相维制','C']),
+  ],
+  /* 行事风格 刚直 G / 圆融 R */
+  GR: [
+    Q('朝中权阉当道、势倾中外。你选择：',['直言弹劾','G'],['曲意周旋','R'],['徐图去之、不露声色','P']),
+    Q('上司举措有失、将误大事。你：',['犯颜直谏','G'],['婉言规劝','R'],['改由上奏、直达天听','C']),
+    Q('同僚舞弊、侵渔公帑。你：',['依律弹劾','G'],['私下劝止','R'],['上章纠劾、不避同袍','G'],['徐徐规正、全其颜面','R']),
+    Q('皇帝问政及于要害。你：',['据实直陈利弊','G'],['揣摩圣意应对','R'],['只陈事功、不争是非','W']),
+    Q('权贵以私事相托、势不可却。你：',['严词拒绝','G'],['虚与委蛇','R'],['视事之利害、择善而从','W']),
+    Q('军中将领跋扈、凌轹僚属。你：',['当众申斥','G'],['好言安抚','R'],['明申军法、暗夺其权','J'],['暂且含容、待时而图','P']),
+    Q('朝廷有诏不便于民。你：',['上表力争','G'],['默然奉行','R'],['封驳不行、以正朝纲','J']),
+    Q('你与节度使意见相左、争执不下。你：',['直言相抗','G'],['屈己从人','R'],['据实上奏、以闻朝廷','C']),
+    Q('你偶知朝廷密议、事关己身。你：',['正道直行','G'],['相机周旋','R'],['密陈利害、以动上听','W'],['缄默自守、不预其事','I']),
+    Q('属下犯小过、情有可原。你：',['严加惩处','G'],['网开一面','R'],['持平而断、务存宽厚','M']),
+    Q('宦官监军临镇、气焰甚张。你：',['不假辞色','G'],['曲意逢迎','R'],['外与周旋、内实制之','J']),
+    Q('论及朝政弊端，众皆缄口。你：',['切中要害、无所避讳','G'],['委婉含蓄、点到即止','R'],['抗言直谏、以博清名','M'],['默察其变、俟时而发','P']),
+    Q('百姓聚讼、情法两难。你：',['执法如山、不徇私情','G'],['情法兼顾、务得其平','R'],['先正名分、后断曲直','W']),
+    Q('同列邀你联名上疏、攻讦政敌。你：',['直陈其非、不屑联署','G'],['虚应故事、不居其名','R'],['谢而不预、各安其分','I']),
+    Q('你的属吏荐人不当、有累清名。你：',['自劾其失、请朝廷议罪','G'],['密为补救、不使彰闻','R'],['援例自解、徐图善后','P']),
+  ],
+  /* 价值重心 事功 W / 名节 M */
+  WM: [
+    Q('功与名难以两全、取舍在人。你：',['求实绩、立功勋','W'],['求清名、守节操','M'],['视时势、两存其便','P']),
+    Q('你治理一方，所重者为何：',['赋税军功','W'],['教化文名','M'],['整军经武、以固边圉','U']),
+    Q('你考课属官、黜陟由己。你更重：',['能办事者','W'],['有操守者','M'],['通经术者','V'],['有军功者','U']),
+    Q('有违名节却利国之事，事在可为。你：',['力行之、敢担其责','W'],['不为也、守节自持','M'],['敢冒物议、果断为之','A']),
+    Q('建功立业之道，你素所服膺者：',['事在人为','W'],['名正言顺','M'],['顺势乘时、敢为人先','A']),
+    Q('朝廷封赏将至，你更愿得：',['实职权柄','W'],['名誉清望','M'],['入朝清要、侍从帷幄','C'],['一州之寄、保境安民','L']),
+    Q('你为人所毁、谤议纷纭。你：',['以功自证','W'],['以节自守','M'],['守正自持、不为所动','M']),
+    Q('你用人授职、权柄在握。标准为：',['干练有才','W'],['德才并重、先德后才','M'],['量才器使、不问出身','I']),
+    Q('兴利除弊、事有缓急。你：',['先求实效','W'],['先正名分','M'],['雷厉风行、立见其功','A'],['调研详审、徐图改革','P']),
+    Q('世人重虚名、士林多尚声华。你：',['不以为意','W'],['爱惜羽毛','M'],['但求问心无愧','I']),
+    Q('大功既成、名位已极。你：',['继续进取、广立功业','W'],['急流勇退、以全令名','M'],['入朝侍君、匡扶社稷','C']),
+    Q('若论平生志向，你愿：',['佐明主、致太平、立不世之功','W'],['守名节、正风俗、为士林表率','M'],['提兵十万、横行天下','U'],['著述立言、以文传世','V']),
+    Q('你辖境灾荒、饿殍载道，而催科甚急。你：',['严督赋税、以充国用','W'],['奏请蠲免、宁违考课','M'],['开仓赈济、先活民命','M']),
+    Q('边将请以战功邀赏、虚张首虏。你：',['核功而赏、不徇虚名','W'],['重信赏罚、以劝将来','M'],['弹劾其欺、以正军政','G']),
+    Q('你久任繁剧、劳形案牍，所图者：',['富国强兵、务成实效','W'],['风清弊绝、垂誉后世','M'],['循资迁转、以冀显达','P']),
+  ],
+  /* 人际模式 结党 D / 独立 I */
+  DI: [
+    Q('朝中朋党相争、各树党援。你：',['择木而栖、结为奥援','D'],['超然独立、不偏不倚','I'],['相机而附、不失其利','R']),
+    Q('幕府用人，你倾向于：',['多引故旧心腹','D'],['唯才是举、不论亲疏','I'],['量功授职、不徇私交','W']),
+    Q('与权贵交往、人情往来。你：',['刻意结交','D'],['保持距离','I'],['结交亦为效忠朝廷','C'],['厚礼相结、以固方镇','L']),
+    Q('同僚结盟、共排异己。你：',['顺势入伙','D'],['独善其身','I'],['两不相帮、各安其位','F']),
+    Q('军中亲信，你何以处之：',['广植党羽','D'],['公心待下','I'],['厚养部曲、以固方镇','L']),
+    Q('你忽陷困境、祸起不测。你：',['广结奥援','D'],['独力支撑','I'],['长袖善舞、借势自保','R'],['坚守正道、宁折不弯','G']),
+    Q('宦官势盛、欲与你交结。你：',['曲意结纳','D'],['敬而远之','I'],['外与周旋、内实制之','J']),
+    Q('幕职僚属，你如何安置：',['多置私人','D'],['因材器使','I'],['分工授职、各专其责','F']),
+    Q('朝廷党争波及于你、祸福未卜。你：',['依附强援以自保','D'],['恪守中立','I'],['上表自陈、以明心迹','C'],['外示中立、内结奥援','D']),
+    Q('同乡故旧纷纷来投。你：',['多加提携、引为羽翼','D'],['量才而用','I'],['厚礼延纳、以为腹心','L']),
+    Q('与诸镇节度相处之道，你取：',['结为奥援','D'],['保持独立','I'],['择强而附、相机自处','R']),
+    Q('你闻某士人望重一方、士林归心。你：',['结纳以为助力','D'],['平交而不攀附','I'],['荐之于朝、成人之美','C'],['择其贤者、以正风俗','M']),
+    Q('你将去任，继任者乃政敌之党。你：',['厚遗交欢、为之先容','D'],['尽瘁其事、不问后患','I'],['从容授受、不失其职','R']),
+    Q('有人欲荐你入朝要津、然须附权门。你：',['欣然借助、以图进身','D'],['谢而不受、守己自安','I'],['婉辞厚谢、两不结怨','R']),
+    Q('军中诸将欲共推你为帅。你：',['广纳诸将、结为心腹','D'],['唯凭军功、不以私交','I'],['量才而任、一秉至公','W']),
+  ],
+  /* 知识偏好 文治 V / 武略 U */
+  VU: [
+    Q('公务之暇，你所喜读者：',['经史文集','V'],['兵法韬略','U'],['律令格式、明习吏事','V']),
+    Q('你治理一方，所重者为何：',['兴学教化','V'],['整军练兵','U'],['农桑水利、富庶其民','W']),
+    Q('你自审所长，在于：',['文章辞赋','V'],['骑射军阵','U'],['钱谷出纳、勾稽之才','W'],['纵横调停、折冲樽俎','R']),
+    Q('敌情猝至、边报交驰。你：',['以谋略化解','V'],['以兵威震慑','U'],['先礼后兵、两存其备','P']),
+    Q('幕府延揽人才，你主：',['延揽文士','V'],['招募骁将','U'],['观其能否、不论文武','I']),
+    Q('论入仕之道，你所重者：',['重视文教科举','V'],['重视军功军籍','U'],['以清望自持','M'],['以实绩自见','W']),
+    Q('你素所仰慕者：',['文学大家','V'],['名将勋臣','U'],['理财能臣、富国足民','W']),
+    Q('管内政务纷繁，你所先者：',['礼乐刑名','V'],['军备武库','U'],['敦厚风俗、以正人心','M']),
+    Q('建功之路，你择：',['以文入仕','V'],['以武立功','U'],['佐主理财、以充国用','W'],['守节立名、为士林重','M']),
+    Q('对文吏与将士，你更亲：',['亲近文吏','V'],['亲近将士','U'],['但问才具、不别文武','I']),
+    Q('处理边事，你的方略：',['和戎怀柔','V'],['耀武扬威','U'],['战守兼备、以守为主','P']),
+    Q('若论平生所长，你自信在：',['运筹文墨','V'],['冲锋陷阵','U'],['镇抚军民、安定一方','L'],['统驭群僚、总揽全局','J']),
+    Q('朝廷命你草拟军国文告。你：',['援笔立就、斐然成章','V'],['陈兵布势、慷慨激昂','U'],['斟酌利害、务求允当','W']),
+    Q('你将出镇边州、地当冲要。你：',['先布文教、以化其民','V'],['先练卒伍、以固其守','U'],['先实仓廪、以足其用','W']),
+    Q('有人问及兵民之术。你答：',['先教后刑、以文治民','V'],['明赏必罚、以武立威','U'],['量入为出、以财养兵','W']),
+  ],
+  /* 风险态度 激进 A / 审慎 P */
+  AP: [
+    Q('机会与风险并存、成败在此一举。你：',['果断一搏','A'],['三思后行','P'],['谋定后动、宁缓毋错','S']),
+    Q('敌军势大、众寡不敌。你：',['决一死战','A'],['暂避锋芒','P'],['坚壁清野、以待时变','S']),
+    Q('弊政积久、改革须行。你：',['大刀阔斧','A'],['循序渐进','P'],['择要先行、以观其效','W'],['先正名分、再行其事','M']),
+    Q('朝廷密召你进京、吉凶未卜。你：',['慨然前往','A'],['恐有变、婉言推辞','P'],['奉召即行、以朝命为重','C']),
+    Q('你将兴大役、费繁功巨。你：',['敢为天下先','A'],['虑其不虞、徐徐图之','P'],['先谋其成、不避劳费','W']),
+    Q('出战之机稍纵即逝。你：',['兵贵神速','A'],['稳扎稳打','P'],['集中精锐、一击而中','J'],['伺衅而动、后发制人','F']),
+    Q('与强藩争利、胜负难料。你：',['敢于相争','A'],['隐忍退让','P'],['合纵连横、借势制之','D']),
+    Q('收编降卒、众心未附。你：',['大胆收用','A'],['恐生变乱、遣散安置','P'],['择其精壮、分隶诸将','J']),
+    Q('孤军深入、后援不继。你：',['置之死地而后生','A'],['不冒险进','P'],['联络诸军、互为犄角','D'],['独力深入、专其功名','I']),
+    Q('新政可裨国计、然物议汹汹。你：',['急于求成','A'],['缓行试之','P'],['循序而进、以固其本','S']),
+    Q('阵前事急、须即时决断。你：',['当机立断','A'],['反复权衡','P'],['集众议而后决','F']),
+    Q('朝中政敌相逼、势不两立。你：',['主动出击、先发制人','A'],['静观其变、以逸待劳','P'],['结援朝贵、以势压之','D'],['上章自辩、以正视听','G']),
+    Q('你将赴远镇、道阻且长。你：',['轻骑疾行、昼夜兼程','A'],['整旅徐行、步步为营','P'],['先遣使通意、再行赴任','R']),
+    Q('有大将欲举兵、邀你同谋。你：',['审其必胜、慨然从之','A'],['密察其变、不与同谋','P'],['佯为应诺、阴图自全','R']),
+    Q('事机已迫、不容迟疑。你：',['断然举事、成败在此','A'],['按兵不动、以待万全','P'],['先请朝命、不敢擅专','C']),
+  ],
+  /* 忠诚对象 中央 C / 地方 L */
+  CL: [
+    Q('朝廷诏令与地方利益相冲突。你：',['以朝廷为先','C'],['以地方为先','L'],['两全其美、相机而行','R']),
+    Q('你立身之根基在于：',['朝中','C'],['方镇','L'],['居中制外、两倚其势','J']),
+    Q('朝廷征调你镇之兵粮、为数不赀。你：',['奉命唯谨','C'],['顾虑镇中','L'],['表请留镇、以安属郡','R'],['择精而遣、惜其民力','M']),
+    Q('你平生的志向在于：',['入朝辅政','C'],['镇守一方','L'],['以文翰致君、位列台省','V']),
+    Q('朝廷议削藩镇之权。你：',['顺应朝命','C'],['自固方镇','L'],['表请留镇、以安属郡','R']),
+    Q('兵权归属、事涉安危。你：',['尊奉中央','C'],['自握兵权','L'],['居中以制外、收其柄','J'],['外奉朝命、内实专之','R']),
+    Q('论你立身行事之本：',['忠君事国','C'],['保境安民','L'],['勤修职贡、以结主恩','R']),
+    Q('朝野声望与方镇根基、难以兼得。你：',['重朝望','C'],['重镇基','L'],['两存之、朝镇相济','J']),
+    Q('朝廷危难、征勤王之师。你：',['勤王赴难','C'],['拥兵自保','L'],['观变而动、敢决其机','A'],['倾镇入援、以邀忠名','M']),
+    Q('论及藩镇割据、朝野争辩。你：',['主张削弱、以复朝权','C'],['主张自专、以固藩镇','L'],['俟时而动、相机去就','P']),
+    Q('你的政治理想在于：',['匡扶社稷','C'],['割据一方','L'],['以武功定乱、名垂竹帛','U']),
+    Q('若朝廷召你入朝、舍镇而去。你：',['欣然奉召','C'],['恐失根基、观望不前','L'],['入朝而留腹心守镇、进退有据','J'],['以镇事未毕、表请缓行','R']),
+    Q('朝中有人构陷你拥兵自重。你：',['上表自明、请解兵柄','C'],['厚赂权要、以固其位','L'],['逆折其谋、以正视听','G']),
+    Q('你镇富庶、朝廷屡索贡献。你：',['竭力上供、以奉朝廷','C'],['量留镇用、余以上供','L'],['称镇用不敷、婉辞减贡','R']),
+    Q('你久镇一方、百姓爱戴。你：',['以镇为家、久任不迁','L'],['心存魏阙、常思入辅','C'],['修表陈情、请朝廷处分','M']),
+  ],
+};
+
+/* ---------- 情境复合题（完整版专属，测 3 维） ---------- */
+const COMPOSITE = [
+  Q('外敌压境、内政未靖、朝命又促，你当如何统筹？',
+     ['全力出击，以战功定全局', {K:1,A:1,W:1}],
+     ['安内为先，固守待时', {S:1,P:1,L:1}],
+     ['请旨而行，候命而动', {F:1,P:1,C:1}],
+     ['集权在手，一举荡平', {J:1,A:1,K:1}]),
+  Q('朝中权阉使人携重礼前来示好，你：',
+     ['严词斥退，上表弹劾', {G:1,M:1,C:1}],
+     ['虚与委蛇，相机自保', {R:1,P:1,D:1}],
+     ['收下厚礼，结为奥援', {R:1,D:1,K:1}],
+     ['闭门不见，敬而远之', {I:1,M:1,G:1}]),
+  Q('属州歉收、军粮告急、朝廷催赋，你：',
+     ['强征于民以充军资', {K:1,J:1,W:1}],
+     ['缓征安民，奏请蠲免', {S:1,F:1,M:1}],
+     ['兴水利、劝农桑以图长久', {K:1,V:1,W:1}],
+     ['开仓赈济，保境安民', {S:1,L:1,M:1}]),
+  Q('得朝廷拜为使相、又素有方镇根基，你：',
+     ['入朝辅政，匡扶社稷', {C:1,V:1,W:1}],
+     ['谢恩留镇，经营方镇', {L:1,U:1,K:1}],
+     ['既领朝命，亦固镇基', {J:1,K:1,C:1}],
+     ['审时度势，静观其变', {P:1,S:1,I:1}]),
+];
+
+/* ---------- 方镇驻地表（地方向职事官与使职联动） ---------- */
+const FANGZHEN = {
+  wu: [   // 武略方镇
+    {name:'河东', seat:'太原府', guan:'太原尹', guanG:'正三品', flavor:'北都重镇，屏藩幽并'},
+    {name:'卢龙', seat:'幽州', guan:'幽州大都督府长史', guanG:'从三品', flavor:'燕蓟边塞，控扼山海关要'},
+    {name:'朔方', seat:'灵州', guan:'灵州大都督府长史', guanG:'从三品', flavor:'河套屏障，朔漠重兵'},
+    {name:'魏博', seat:'魏州', guan:'魏州刺史', guanG:'从三品', flavor:'河朔强藩，牙兵桀骜'},
+    {name:'凤翔', seat:'凤翔府', guan:'凤翔尹', guanG:'正三品', flavor:'关中西陲，西顾之重镇'},
+    {name:'平卢', seat:'青州', guan:'青州刺史', guanG:'从三品', flavor:'齐鲁之地，濒海重镇'},
+  ],
+  wen: [  // 文治方镇
+    {name:'淮南', seat:'扬州', guan:'扬州大都督府长史', guanG:'从三品', flavor:'江淮财赋，盐利冠天下'},
+    {name:'剑南西川', seat:'成都府', guan:'成都尹', guanG:'正三品', flavor:'天府之国，西南都会'},
+    {name:'岭南东道', seat:'广州', guan:'广州刺史', guanG:'从三品', flavor:'南海市舶，番货云集'},
+    {name:'荆南', seat:'江陵府', guan:'江陵尹', guanG:'正三品', flavor:'荆楚腹地，控扼江汉'},
+    {name:'宣武', seat:'汴州', guan:'汴州刺史', guanG:'从三品', flavor:'中原冲要，漕运咽喉'},
+    {name:'山南东道', seat:'襄州', guan:'襄州刺史', guanG:'从三品', flavor:'荆襄重镇，襟带汉沔'},
+  ],
+};
+
+/* ---------- 各层头衔信息表（品级 / 职能 / 地位 / 制度背景） ---------- */
+const SANGUAN_INFO = {
+  '金紫光禄大夫':{g:'正三品',d:'文散官之首，标示本品阶与身份等级，定班位、服色与俸禄基准。',s:'已臻高级官僚顶层，着紫服、佩金鱼袋。',b:'中晚唐散官沦为身份标识，与职事脱钩，方镇主官多带金紫或银青以示高位。'},
+  '银青光禄大夫':{g:'从三品',d:'文散官，标示本品阶，定班位、服色与俸禄。',s:'进入高级官僚行列，着紫服、佩金鱼袋，为方镇主官常见散阶。',b:'从三品散官已是结衔“底色”，有资格带高品检校官与使职。'},
+  '正议大夫':{g:'正四品上',d:'文散官，标示本品阶与身份等级。',s:'中级官僚中的上位，服绯。',b:'四品散官多授予有实绩而渐起的中层官僚。'},
+  '通议大夫':{g:'正四品下',d:'文散官，标示本品阶。',s:'中层官僚之阶，服绯。',b:'散官与职事脱钩后，四品散阶成为量资叙品之标识。'},
+  '太中大夫':{g:'从四品上',d:'文散官，标示本品阶。',s:'中级官僚，服绯。',b:'从四品散阶，多授予清望渐隆者。'},
+  '中大夫':{g:'从四品下',d:'文散官，标示本品阶。',s:'中级官僚，服绯。',b:'中晚唐散官渐为虚阶，仍具叙资意义。'},
+  '中散大夫':{g:'正五品上',d:'文散官，标示本品阶。',s:'中下层官僚之上位，服绯。',b:'五品散官，介于绯绿之间，清贵而有节制。'},
+  '朝议大夫':{g:'正五品下',d:'文散官，标示本品阶。',s:'中下层官僚，服绯。',b:'朝议大夫为中晚唐清要文臣常见散阶。'},
+  '朝请大夫':{g:'从五品上',d:'文散官，标示本品阶。',s:'中下层官僚，服绯。',b:'从五品散阶，多授资历渐深者。'},
+  '朝散大夫':{g:'从五品下',d:'文散官，标示本品阶。',s:'中下层官僚，服绯。',b:'五品以下散官，多为初入高秩者所带。'},
+  '文林郎':{g:'从九品上',d:'文散官，标示本品阶与身份等级。',s:'低级文散，服青，为初仕者所带。',b:'文林郎为唐代低级文散官，多授初入仕途的文吏。'},
+  '将仕郎':{g:'从九品下',d:'文散官，标示本品阶与身份等级。',s:'文散官之末，服青。',b:'将仕郎为唐代文散官最低一等，多授初仕者。'},
+  '陪戎校尉':{g:'从九品上',d:'武散官，标示本品阶与身份等级。',s:'低级武散阶。',b:'陪戎校尉为低级武散官，多授初授武职者。'},
+  '陪戎副尉':{g:'从九品下',d:'武散官，标示本品阶。',s:'武散官之末。',b:'陪戎副尉为唐代武散官最低一等。'},
+};
+
+const JIANXIAO_INFO = {
+  '检校尚书左仆射':{g:'从二品',d:'尚书左仆射为尚书省副长官；加“检校”则为荣誉性代理加官，无实际职权，用于标示资历与政治地位。',s:'近乎宰辅层级的加衔，多授实力强藩，以示尊崇与笼络。',b:'中晚唐方镇主官普遍带检校衔，自检校尚书至检校三公层层递进，检校愈高，与中央关系愈微妙。'},
+  '检校尚书右仆射':{g:'从二品',d:'尚书右仆射为尚书省副长官；加“检校”为荣誉加官，标示资历、俸禄与地位。',s:'宰辅层级加衔，授实力雄厚、朝廷不得不笼络的节度使。',b:'检校仆射是方镇主官极高的加衔，既是地位承认，也是中央与地方间的政治交易。'},
+  '检校司空':{g:'正一品',d:'三公之检校衔，纯为荣誉加官，无实际职掌。',s:'品阶之极，授功高权重、朝廷须竭力笼络者。',b:'检校三公多为已极人臣的强藩所带，象征意义大于实权。'},
+  '检校司徒':{g:'正一品',d:'三公之检校衔，纯荣誉加官。',s:'位极人臣的加衔。',b:'中晚唐检校三公渐滥，但仍标示极高的政治分量。'},
+  '检校散骑常侍':{g:'从三品',d:'散骑常侍本掌规谏；加“检校”为荣誉加官，标示清望资历。',s:'清贵加衔，多授文资出身或声望渐起者。',b:'检校散骑常侍较检校六部尚书为轻，为中等加衔。'},
+  '检校国子祭酒':{g:'从三品',d:'国子祭酒掌国学；加“检校”为荣誉加官，重文教清望。',s:'文教清望之加衔。',b:'检校国子祭酒多授文臣或尚文者，示以尊儒。'},
+  '检校秘书监':{g:'从三品',d:'秘书监掌经籍图书；加“检校”为荣誉加官。',s:'清闲清贵之加衔。',b:'检校秘书监为较普通的检校衔，资望有限。'},
+  '检校礼部尚书':{g:'正三品',d:'礼部尚书掌礼仪、科举、宾客；加“检校”为荣誉加官。',s:'六部尚书之检校，清望显赫，多授尚文者。',b:'检校部尚书为中等偏上的检校衔，标示已入省部长官资历。'},
+  '检校兵部尚书':{g:'正三品',d:'兵部尚书掌武选、军籍、甲仗；加“检校”为荣誉加官。',s:'六部尚书之检校，多授尚武有军功者。',b:'检校兵部尚书常授方镇武臣，示其军政资历。'},
+  '检校户部尚书':{g:'正三品',d:'户部尚书掌户口、赋役、财政；加“检校”为荣誉加官。',s:'六部尚书之检校，多授善理财赋者。',b:'检校户部尚书常授主财计者，示其经济之才。'},
+  '检校吏部尚书':{g:'正三品',d:'吏部尚书掌铨选、考课；加“检校”为荣誉加官。',s:'六部尚书之检校，清望最高，多授有清誉者。',b:'检校吏部尚书为检校部尚书中最清贵者。'},
+};
+
+const XIANXIAN_INFO = {
+  '兼御史大夫':{g:'正三品',d:'御史大夫为御史台长官，掌监察弹劾；方镇加此衔即获风宪之权，可自行弹劾管内官吏。',s:'宪衔中的高层，高于御史中丞与侍御史，威望极重。',b:'中晚唐宪衔虚化，成为方镇主官提高威望的加官；带御史大夫者往往在管内确有监察整肃之能。'},
+  '兼御史中丞':{g:'正五品上',d:'御史中丞为御史台副长官，掌监察；加此衔获弹劾之权。',s:'宪衔中的中位，次于御史大夫而高于侍御史。',b:'中晚唐宪衔多为加官，御史中丞较御史大夫略逊，胜在进退灵活。'},
+  '兼侍御史':{g:'从六品下',d:'侍御史掌分察百僚、纠弹非违；加此衔示有风宪之责。',s:'宪衔中的初阶，威望有限。',b:'侍御史为较低宪衔，多授资望尚浅者，作为风宪起步。'},
+};
+
+const SHIZHI_CENTRAL_INFO = {
+  '兼太常少卿':{g:'正四品上',d:'太常寺副长官，掌礼乐、祭祀、谥法。',s:'清要京职，为九寺清望。',b:'太常少卿为礼乐清司副贰，多授文雅通礼者。'},
+  '兼给事中':{g:'正五品上',d:'门下省要职，掌封驳诏敕、审阅奏章。',s:'清要近侍之职，位卑权重。',b:'给事中为中晚唐清望之选，处喉舌之地。'},
+  '兼中书舍人':{g:'正五品上',d:'中书省要职，掌草诏、侍从、纳谏。',s:'文翰清要，为词臣美职。',b:'中书舍人为文士荣选，处制诰之地。'},
+  '兼秘书少监':{g:'从四品上',d:'秘书省副长官，掌图书经籍。',s:'清闲清贵之职。',b:'秘书少监为文翰清署副贰。'},
+  '兼左金吾卫将军':{g:'从三品',d:'南衙禁军将领，掌京城巡警、宫禁宿卫。',s:'环卫要职，掌禁军之半。',b:'金吾卫为南衙禁军，左金吾卫将军是中晚唐中央武职清贵者。'},
+  '兼右羽林军将军':{g:'从三品',d:'北衙禁军将领，掌宫禁宿卫。',s:'北衙禁军要职。',b:'羽林军为北衙禁军，右羽林将军多授武臣。'},
+  '兼千牛卫中郎将':{g:'正四品上',d:'掌侍从宿卫、仪仗。',s:'宿卫近臣之职。',b:'千牛卫为亲从宿卫，中郎将地位不低而掌近卫。'},
+};
+
+const SHIZHI_LOCAL_INFO = {
+  '尹':{d:'为京府或陪都府长官，掌府内民政、财政与地方治安。',s:'北都、西京等府尹地位重要，为地方行政之首。',b:'中晚唐方镇主官惯例兼任驻地长官，驻地若为府则带“尹”。'},
+  '长史':{d:'为大都督府长官（都督多遥领不赴任），实际掌一府民政军务。',s:'大都督府长史地位崇重，代行都督之权。',b:'若驻地为大都督府所在州，则带“大都督府长史”。'},
+  '刺史':{d:'为一州行政长官，掌民政、财政与地方治安。',s:'州之长官，统辖属县。',b:'若驻地为普通州，则带“刺史”。'},
+};
+
+const SHIZHI_INFO = {
+  '节度使':{g:'使职无本品',d:'掌管内军事，统辖诸州镇兵，有便宜行事、旌节之权。',s:'凌驾州县之上的地方最高军政长官。',b:'安史之乱后节度使遍布，集军政财于一身，为中晚唐地方实权核心。'},
+  '观察使':{g:'使职无本品',d:'掌管内州县行政监察、考课官吏，总揽民政。',s:'兼理民政监察，为节度使不可或缺之副使。',b:'观察使原为巡察差遣，后渐固定，与节度使合称“节度观察”。'},
+  '处置使':{g:'使职无本品',d:'掌司法与便宜处置，可自行处理管内重大事务。',s:'总揽军政法，示便宜专断之权。',b:'处置使常与节度、观察连称，形成“节度观察处置等使”的完整使衔。'},
+  '团练使':{g:'使职无本品',d:'掌地方团练民兵，组训地方武力。',s:'次于节度、防御，为一州团练主官。',b:'团练使为中晚唐次于节度使的地方军政使职。'},
+  '防御使':{g:'使职无本品',d:'掌一州或数州防御，抵御外敌或乱军。',s:'地方防御主官，实权次于节度使。',b:'防御使多设于边要或军事要地。'},
+  '经略使':{g:'使职无本品',d:'掌边地经略、安抚、戍守。',s:'边地军政使职，权较轻。',b:'经略使多设于边疆羁縻之地。'},
+  '转运使':{g:'使职无本品',d:'掌漕运与财赋转输，调度东南财赋。',s:'财计要职，握经济命脉。',b:'中晚唐财赋仰仗江淮，转运使地位日重。'},
+  '盐铁使':{g:'使职无本品',d:'掌盐铁专卖与山海之利。',s:'财计要职，盐利为朝廷命脉。',b:'盐铁使与度支、户部并称“三司”，掌国计。'},
+  '度支使':{g:'使职无本品',d:'掌国家财政收支调度。',s:'财计核心，总揽国用。',b:'度支使为中晚唐三司之一，掌财政调度。'},
+  '招讨使':{g:'使职无本品',d:'临时征讨使职，掌一方军事征讨。',s:'军事征讨要职，事毕即罢。',b:'招讨使为临时军职，掌征讨大权，功成即罢。'},
+  '宣慰使':{g:'使职无本品',d:'奉旨宣示朝廷恩命，安抚地方。',s:'朝廷钦差性质使职。',b:'宣慰使为临时差遣，代表朝廷宣谕。'},
+  '安抚使':{g:'使职无本品',d:'掌地方安抚、赈济、绥靖。',s:'地方安抚要职。',b:'安抚使掌绥靖一方，多授边地与乱后之地。'},
+  '监军使':{g:'使职无本品',d:'以亲信（多为内廷之人）监临军队，代朝廷监督方镇。',s:'凌驾于方镇之上的监督之职，实权隐微而钳制极重。',b:'中晚唐宦官监军普遍，监军使以朝廷名义钳制藩镇。'},
+};
+
+const XUN_INFO = {
+  '上柱国':{g:'正二品（十二转）',d:'酬赏军功的最高勋级，以“转”计数。',s:'勋官之极，授军功卓著者。',b:'中晚唐勋官渐滥，实际待遇有限，但仍是结衔中标示功勋的必要元素。'},
+  '柱国':{g:'从二品（十一转）',d:'酬赏军功的高勋级。',s:'勋官第二等，授军功显赫者。',b:'柱国次于上柱国，为军功重赏。'},
+  '上护军':{g:'正三品（十转）',d:'酬赏军功的勋级。',s:'勋官中上位。',b:'上护军为中等偏上勋级。'},
+  '护军':{g:'从三品（九转）',d:'酬赏军功的勋级。',s:'勋官中等。',b:'护军为勋级中位。'},
+  '上轻车都尉':{g:'正四品（八转）',d:'酬赏军功的勋级。',s:'勋官中下位。',b:'上轻车都尉多授有功而勋未甚者。'},
+  '轻车都尉':{g:'从四品（七转）',d:'酬赏军功的勋级。',s:'勋官下位。',b:'轻车都尉为较低勋级。'},
+};
+
+const JUE_INFO = {
+  '国公':{g:'从一品',d:'最高一等封爵，以国为号（如吴国公、越国公），荣誉极崇。',s:'爵位之极，多授元勋或强藩，唐制国公之前不加“开国”二字。',b:'中晚唐封爵虚化，食邑多虚封，然国公仍为极高荣誉。'},
+  '郡公':{g:'正二品',d:'以郡为号之封爵（如范阳郡开国公），荣誉崇高。',s:'爵位第二等。',b:'郡公多加“开国”二字，多授重臣勋戚。'},
+  '县公':{g:'从二品',d:'以县为号之封爵（如曲阜县开国公）。',s:'爵位中上位。',b:'县公为中晚唐常见高等爵，加“开国”二字。'},
+  '县侯':{g:'从三品',d:'以县为号之封爵（如鄢陵县开国侯），荣誉中等偏上。',s:'高于县伯、县子、县男。',b:'县侯为方镇主官常见爵位，前加“开国”二字。'},
+  '县伯':{g:'正四品上',d:'县级封爵，荣誉中等。',s:'爵位中等。',b:'县伯多授有军功政绩者。'},
+  '县子':{g:'正五品上',d:'县级封爵之下者。',s:'爵位中下。',b:'县子为较低封爵。'},
+  '县男':{g:'从五品上',d:'最低封爵。',s:'爵位末等。',b:'县男为封爵起点，多授初有勋劳者。'},
+};
+
+/* 封号用名：国公以“国”为号，郡公以“郡”为号，县公/侯/伯/子/男以“县”为号 */
+const FIEF = {
+  guo:  ['吴','越','齐','楚','燕','赵','魏','韩','梁','陈','郑','鲁','宋','晋','秦','蜀','荆','曹'],
+  jun:  ['范阳','陇西','太原','河东','清河','博陵','荥阳','琅琊','颍川','汝南','南阳','彭城','中山','东平','京兆','河南','上党','敦煌'],
+  xian: ['鄢陵','南昌','彭城','江都','襄阳','会稽','上元','临海','新安','华阴','曲阜','巨鹿','安平','定远','义兴','昭应','武昌','临淄'],
+};
+
+const SHIYI = {
+  '国公':'三千户','郡公':'二千户','县公':'一千五百户','县侯':'一千户',
+  '县伯':'七百户','县子':'五百户','县男':'三百户',
+};
+
+/* ---------- 卑官名表（用于“寒微”结果：位卑职小、多无检校宪衔勋爵） ---------- */
+const HUMBLE = {
+  sanguanWen: [['文林郎','从九品上'],['将仕郎','从九品下']],
+  sanguanWu:  [['陪戎校尉','从九品上'],['陪戎副尉','从九品下']],
+  zhou:    ['洪州','扬州','楚州','舒州','江州','黄州','歙州','台州'],
+  county:  ['南昌','江都','彭城','浔阳','新安','临海','上元','句容'],
+  // 州佐（司仓/司户/录事参军）
+  zhouPosts: [['司仓参军','从八品下'],['司户参军','从八品下'],['录事参军','从七品上']],
+  // 县佐（主簿/丞）
+  countyPosts: [['县主簿','正九品下'],['县丞','从八品下'],['县尉','从九品上']],
+  // 京中卑职
+  central: [['秘书省校书郎','正九品上'],['秘书省正字','正九品下'],['太常寺奉礼郎','从九品上'],['太常寺协律郎','正八品上'],['左卫率府兵曹参军','从八品下']],
+  // 幕职卑官（使职下僚）
+  zhen: ['江南西道','淮南','浙东','宣歙','鄂岳','江西','福建'],
+  muPosts: [['巡官','方镇幕职，掌巡察传令。','幕职卑官。','巡官为幕府中较低之职。'],
+            ['判官','方镇幕职，佐理事务、判署公文。','幕职中位较高者。','判官为幕府要职，然仍属使职下僚。'],
+            ['掌书记','掌幕府文书、表奏。','文吏幕职。','掌书记为幕府文职，多授文士。'],
+            ['支使','掌幕府财赋支度。','幕职。','支使多掌财计。'],
+            ['孔目官','掌幕府文籍、勾稽。','幕职卑官。','孔目官为幕府低级文吏。']],
+};
+
+/* 卑官（散官之外）的解释信息：职事官（字段同常规职事官） */
+const HUMBLE_ZHISHI_INFO = {
+  '秘书省校书郎':{grade:'正九品上',duty:'掌校勘典籍、整理图书。',status:'清而卑之文职，为士人释褐清选。',bg:'校书郎为唐代士人释褐之清选，然品秩甚低。'},
+  '秘书省正字':{grade:'正九品下',duty:'掌校正文字、缮写典籍。',status:'清卑之文职。',bg:'正字为秘书省低级文职，多授初仕文士。'},
+  '太常寺奉礼郎':{grade:'从九品上',duty:'掌祭祀奉礼、赞导仪节。',status:'太常寺卑职。',bg:'奉礼郎为太常寺低级职事官。'},
+  '太常寺协律郎':{grade:'正八品上',duty:'掌乐律、祭祀之乐。',status:'太常寺卑职。',bg:'协律郎为太常寺低级职事官。'},
+  '左卫率府兵曹参军':{grade:'从八品下',duty:'掌东宫卫府兵事簿籍。',status:'东宫卫府卑职。',bg:'率府兵曹参军为东宫武职中的低阶。'},
+  '县尉':{grade:'从九品上',duty:'一县之佐官，掌治安、捕盗、催科。',status:'县佐之职，品卑而务剧。',bg:'县尉为唐代士人释褐常任之职。'},
+  '县主簿':{grade:'正九品下',duty:'掌县中文书、勾稽簿籍。',status:'县佐，掌簿书。',bg:'主簿为县中要佐，多由初仕者任。'},
+  '县丞':{grade:'从八品下',duty:'为县令之副，掌县中众务。',status:'县佐之长，品秩不高。',bg:'县丞多由资浅者任。'},
+  '司仓参军':{grade:'从八品下',duty:'掌州中仓廪、租赋出纳。',status:'州佐官，掌仓储。',bg:'司仓参军为州中诸曹之一。'},
+  '司户参军':{grade:'从八品下',duty:'掌州中户口、赋役。',status:'州佐官，掌户籍财赋。',bg:'司户参军为州中诸曹之一。'},
+  '录事参军':{grade:'从七品上',duty:'掌州中纠察、文书，总录众曹。',status:'州佐中位较高者。',bg:'录事参军为州佐之首，然品秩仍低。'},
+};
+
+/* ---------- 完整输出示例（开发参照 / 结果页渲染标准） ---------- */
+/* 八维取向：开拓(K)·集权(J)·刚直(G)·事功(W)·独立(I)·武略(U)·激进(A)·地方(L)，强度“中上档” */
+const SAMPLE_RESULT = {
+  typeCode:'KJGW-IUAL',
+  typeName:'开拓·集权·刚直·事功·独立·武略·激进·地方',
+  rankLabel:'中上档',
+  fullTitle:'银青光禄大夫、检校尚书右仆射、兼御史大夫、兼太原尹、充河东节度观察处置等使、上柱国、义兴县开国侯、食邑一千户',
+  brief:'你属于开拓集权、刚直事功、独立尚武且扎根地方的类型。在中晚唐官僚体系中，你的结衔以方镇主官为核心，兼带高位检校官与宪衔，威望与实权并重。你并非依附朝中朋党的清贵文臣，而是凭军功与实绩立足的边镇强臣。你的权力基础在地方，风险也来自地方与中央的张力。',
+};
+
+/* ---------- 状态 ---------- */
+const state = {
+  tier:'normal',
+  questions:[],
+  answers:{},      // {题序: 选项序}
+  idx:0,
+};
+let advanceTimer = null;   // 自动跳转计时器
+
+const TIER_META = {
+  brief:{label:'简洁版', count:24, sub:'二十四问'},
+  normal:{label:'正常版', count:64, sub:'六十四问'},
+  full:{label:'完整版', count:124, sub:'一百二十四问'},
+};
+
+/* ---------- 组装某版本题序 ---------- */
+function buildQuestions(tier){
+  const list = [];
+  const per = tier==='brief' ? 3 : tier==='normal' ? 8 : 99; // 完整版取全部题目
+  DIM_ORDER.forEach(dim=>{
+    POOL[dim.pair].slice(0, per).forEach((q, i)=>{
+      list.push({ ...q, pair:dim.pair, id:list.length, idxInDim:i });
+    });
+  });
+  if (tier==='full') COMPOSITE.forEach(q=>{
+    list.push({ ...q, pair:null, id:list.length, idxInDim:-1 });
+  });
+  return list;
+}
+
+/* ---------- UI 辅助 ---------- */
+const $ = id => document.getElementById(id);
+function show(id){ ['cover','quiz','loading','result'].forEach(s=>{ $(s).classList.toggle('hidden', s!==id); }); }
+
+/* ---------- 开始 / 切换版本 ---------- */
+function initCover(){
+  const btns = document.querySelectorAll('.ver-btn');
+  btns.forEach(b=> b.addEventListener('click', ()=>{
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    state.tier = b.dataset.tier;
+  }));
+  $('startBtn').addEventListener('click', ()=> startQuiz(false));
+  const saved = loadProgress();
+  if (saved){ $('resumeHint').textContent = `上次「${TIER_META[saved.tier].label}」答题至第 ${saved.idx+1} 题，可续答`; }
+}
+
+function startQuiz(resume){
+  const saved = resume ? loadProgress() : null;
+  if (resume && saved){
+    state.tier = saved.tier;
+    state.questions = buildQuestions(saved.tier);
+    state.answers = saved.answers || {};
+    state.idx = saved.idx;
+  } else {
+    state.questions = buildQuestions(state.tier);
+    state.answers = {};
+    state.idx = 0;
+  }
+  show('quiz');
+  $('tierTag').textContent = `${TIER_META[state.tier].label} · ${TIER_META[state.tier].sub}`;
+  if (advanceTimer){ clearTimeout(advanceTimer); advanceTimer=null; }
+  clearHint();
+  renderQuestion();
+}
+
+/* ---------- 渲染题目 ---------- */
+function renderQuestion(){
+  const q = state.questions[state.idx];
+  const total = state.questions.length;
+  $('progressFill').style.width = (state.idx/total*100) + '%';
+  $('progressNum').textContent = `${state.idx+1} / ${total}`;
+  $('qText').innerHTML = `<span class="q-idx">第${state.idx+1}问</span>${q.t}`;
+  const dim = q.pair ? DIM_ORDER.find(d=>d.pair===q.pair) : null;
+  $('qDim').textContent = dim ? `（主测：${dim.name}）` : '（情境复合题 · 多维度推演）';
+  const box = $('qOptions');
+  box.innerHTML = '';
+  const keys = ['甲','乙','丙','丁'];
+  q.o.forEach((opt, i)=>{
+    const b = document.createElement('button');
+    b.className = 'opt' + (state.answers[state.idx]===i ? ' sel':'');
+    b.innerHTML = `<span class="opt-key">${keys[i]}.</span>${opt.x}`;
+    b.addEventListener('click', ()=>{
+      if (advanceTimer){ clearTimeout(advanceTimer); advanceTimer=null; }
+      state.answers[state.idx] = i;
+      clearHint();
+      renderQuestion();
+      saveProgress();
+      // 非末题：作答后稍作停顿自动跳转；末题：不自动跳转/提交，等待用户手动点“提交推演”
+      if (state.idx < state.questions.length-1){
+        advanceTimer = setTimeout(advance, 380);
+      }
+    });
+    box.appendChild(b);
+  });
+  $('prevBtn').disabled = state.idx===0;
+  const isLast = state.idx===total-1;
+  $('nextBtn').textContent = isLast ? '提交推演' : '下一题';
+}
+
+/* 提示信息 */
+function clearHint(){ const el=$('qHint'); el.textContent=''; el.classList.remove('flash'); }
+function showHint(msg){ const el=$('qHint'); el.textContent=msg; el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+
+/* 自动跳转：末题则提交 */
+function advance(){
+  advanceTimer = null;
+  if (state.idx < state.questions.length-1){ state.idx++; renderQuestion(); }
+  else { submitQuiz(); }
+}
+
+/* 提交前校验：所有题目必须作答 */
+function submitQuiz(){
+  for (let i=0;i<state.questions.length;i++){
+    if (state.answers[i]===undefined){
+      state.idx = i; renderQuestion();
+      showHint('尚有题目未作答，请作答后再提交。');
+      return;
+    }
+  }
+  runLoading();
+}
+
+$('prevBtn').addEventListener('click', ()=>{
+  if (advanceTimer){ clearTimeout(advanceTimer); advanceTimer=null; }
+  clearHint();
+  if (state.idx>0){ state.idx--; renderQuestion(); }
+});
+$('nextBtn').addEventListener('click', ()=>{
+  if (advanceTimer){ clearTimeout(advanceTimer); advanceTimer=null; }
+  if (state.answers[state.idx]===undefined){ showHint('请先作答本题，再继续。'); return; }
+  clearHint();
+  advance();
+});
+
+/* ---------- 进度持久化（可选） ---------- */
+function saveProgress(){
+  try{ localStorage.setItem('jxx_progress', JSON.stringify({tier:state.tier, idx:state.idx, answers:state.answers})); }catch(e){}
+}
+function loadProgress(){
+  try{ const s = localStorage.getItem('jxx_progress'); return s? JSON.parse(s):null; }catch(e){ return null; }
+}
+
+/* ---------- 计算页 ---------- */
+function runLoading(){
+  show('loading');
+  setTimeout(()=>{ renderResult(calcScores()); }, 2000);
+}
+
+/* ---------- 计分 ---------- */
+function calcScores(){
+  const tally = {};
+  POLE_LIST.forEach(p=> tally[p]=0);
+  state.questions.forEach((q, qi)=>{
+    const oi = state.answers[qi];
+    if (oi===undefined) return;
+    const opt = q.o[oi];
+    Object.keys(opt.s).forEach(k=>{ tally[k] = (tally[k]||0) + opt.s[k]; });
+    // 辅测：正常版/完整版按题序轮换施加半权，体现多重取向
+    if (state.tier==='normal' || state.tier==='full'){
+      const pk = Object.keys(opt.s)[0];
+      const sec = POLE_LIST[(qi+3) % POLE_LIST.length];
+      if (sec !== pk) tally[sec] = (tally[sec]||0) + 0.5;
+    }
+  });
+  // 各维取向与强度
+  const orient = {};   // {KS:{letter, a, b, diff, total}}
+  let rankPoints = 0;
+  DIM_ORDER.forEach(dim=>{
+    const a = tally[dim.a]||0, b = tally[dim.b]||0;
+    const letter = a>=b ? dim.a : dim.b;
+    const diff = Math.abs(a-b), total = a+b;
+    const ratio = total>0 ? diff/total : 0;
+    let tierPt = 0;
+    if (ratio < 0.2) tierPt = 0; else if (ratio < 0.5) tierPt = 1; else tierPt = 2;
+    rankPoints += tierPt;
+    orient[dim.pair] = {letter, a, b, diff, total, ratio, tierPt, dim};
+  });
+  // 总体档位：0-16 点 -> 下 / 中 / 上
+  let rankTier, rankLabel;
+  if (rankPoints <= 4){ rankTier=0; rankLabel='下档'; }
+  else if (rankPoints <= 10){ rankTier=1; rankLabel='中档'; }
+  else { rankTier=2; rankLabel='上档'; }
+  return {tally, orient, rankPoints, rankTier, rankLabel};
+}
+
+/* ---------- 取值取向 ---------- */
+function L(pair, orient){ return orient[pair].letter; }
+
+/* ---------- 生成结衔 ---------- */
+function generateTitle(res){
+  const o = res.orient, rank = res.rankTier; // 0下 1中 2上
+  const K = L('KS',o), J = L('JF',o), G = L('GR',o), W = L('WM',o),
+        D = L('DI',o), V = L('VU',o), A = L('AP',o), C = L('CL',o);
+
+  // “显达”特质计数：开拓、集权、激进、武略、效忠中央 —— 愈多愈易显达
+  const humbleScore = (K==='K'?1:0) + (J==='J'?1:0) + (A==='A'?1:0) + (V==='U'?1:0) + (C==='C'?1:0);
+  const humble = (rank===0 && humbleScore<=1);   // 寒微：位卑职小，无检校、宪衔、勋、爵
+  const noJue  = (rank===0 && humbleScore<=2);   // 低微：不封爵、无食邑（含寒微）
+
+  // 性格类型
+  const typeCode = `${K}${J}${G}${W}-${D}${V}${A}${C}`;
+  const typeName = [K,J,G,W,D,V,A,C].map(x=>{
+    const d = DIM_ORDER.find(dd=>dd.a===x||dd.b===x);
+    return x===d.a ? d.aName : d.bName;
+  }).join('·');
+
+  /*** 寒微分支：卑微官职，无检校/宪衔/勋/爵 ***/
+  if (humble){
+    const h = hashCode(typeCode);
+    const sg = (V==='U') ? HUMBLE.sanguanWu[h % HUMBLE.sanguanWu.length]
+                         : HUMBLE.sanguanWen[h % HUMBLE.sanguanWen.length];
+    const sanguan = sg[0];
+    let zhishi, zhishiInfo;
+    if (C==='L'){
+      if (V==='U'){
+        const c = HUMBLE.county[(h>>>3) % HUMBLE.county.length];
+        zhishi = '守' + c + '县尉';
+        zhishiInfo = { title: zhishi, ...HUMBLE_ZHISHI_INFO['县尉'] };
+      } else if (((h>>>3) % 2) === 0){
+        const zp = HUMBLE.zhouPosts[(h>>>5) % HUMBLE.zhouPosts.length];
+        const pl = HUMBLE.zhou[(h>>>7) % HUMBLE.zhou.length];
+        zhishi = '守' + pl + zp[0];
+        zhishiInfo = { title: zhishi, ...HUMBLE_ZHISHI_INFO[zp[0]] };
+      } else {
+        const cp = HUMBLE.countyPosts[(h>>>5) % HUMBLE.countyPosts.length];
+        const pl = HUMBLE.county[(h>>>7) % HUMBLE.county.length];
+        zhishi = '守' + pl + cp[0];
+        zhishiInfo = { title: zhishi, ...HUMBLE_ZHISHI_INFO[cp[0]] };
+      }
+    } else {
+      const c = HUMBLE.central[(h>>>3) % HUMBLE.central.length];
+      zhishi = c[0];
+      zhishiInfo = { title: zhishi, ...HUMBLE_ZHISHI_INFO[zhishi] };
+    }
+    const mu = HUMBLE.muPosts[h % HUMBLE.muPosts.length];
+    const zhen = HUMBLE.zhen[(h>>>4) % HUMBLE.zhen.length];
+    const shizhiList = ['充' + zhen + (C==='L' ? '观察使' : '转运使') + mu[0]];
+    const parts = [sanguan, zhishi, shizhiList[0]].filter(Boolean);
+    return {
+      typeCode, typeName, rankLabel: res.rankLabel, rankTier: rank,
+      sanguan, jianxiao:null, xianxian:null, shizhi:zhishi, shizhiList,
+      xunguan:null, jue:null, shiyi:null, jueRank:null, fullTitle: parts.join('、'),
+      humble:true, noJue:true, eunuch:false,
+      poles:{K,J,G,W,D,V,A,C}, shizhiObj: zhishiInfo, jianxiaoKey:null,
+    };
+  }
+
+  /* (1) 散官：价值重心(W/M) + 风险态度(A/P) */
+  const sgLadder = ['朝散大夫','朝请大夫','朝议大夫','中散大夫','中大夫','太中大夫','通议大夫','正议大夫','银青光禄大夫','金紫光禄大夫'];
+  let sgBase = (W==='W'?6:3) + (A==='A'?2:0); // W+A=8 W+P=6 M+A=5 M+P=3
+  const sgIdx = clamp(sgBase + (rank-1), 0, sgLadder.length-1);
+  const sanguan = sgLadder[sgIdx];
+
+  /* (2) 检校官：权力取向(J/F) + 进取方式(K/S) */
+  let jxBase = 0;
+  if (J==='J' && K==='K') jxBase = 5;
+  else if (J==='J' && K==='S') jxBase = 4;
+  else if (J==='F' && K==='K') jxBase = 3;
+  else jxBase = 1;
+  const jxIdx = clamp(jxBase + (rank-1), 0, 8);
+  const jxLadder = ['检校秘书监','检校国子祭酒','检校散骑常侍','检校礼部尚书','检校吏部尚书','检校尚书右仆射','检校尚书左仆射','检校司空','检校司徒'];
+  let jianxiao = jxLadder[jxIdx];
+  if (jianxiao==='检校礼部尚书') jianxiao = V==='V' ? '检校礼部尚书' : '检校兵部尚书';
+  if (jianxiao==='检校吏部尚书') jianxiao = W==='W' ? '检校户部尚书' : '检校吏部尚书';
+
+  /* (3) 宪衔：行事风格(G/R) */
+  const xianxian = G==='G' ? '兼御史大夫' : (rank===0 ? '兼侍御史' : '兼御史中丞');
+
+  /* (4)(5) 职事官 + 使职：忠诚对象(C/L) + 知识偏好(V/U) + 进取/权力/风险 */
+  let shizhi, shizhiKey, shizhiGrade, shizhiPlaceFlavor='';
+  let shizhiObj; // {title, grade, duty, status, bg}
+  const power = (K==='K'?2:0) + (J==='J'?1:0) + (A==='A'?1:0) + (rank-1);
+  let shizhiList = [];  // 使职名列表
+
+  // 特殊结果：宦官化倾向（圆融·结党·中央·审慎）
+  const eunuch = (G==='R' && D==='D' && C==='C' && A==='P');
+
+  if (C==='L'){
+    // 地方向：选方镇驻地
+    const pool = (V==='U') ? FANGZHEN.wu : FANGZHEN.wen;
+    let fz;
+    if (V==='U'){
+      fz = pool[(K==='K'? (A==='A'?0:1) : (A==='A'?1:2)) % pool.length];
+      if (K==='K' && A==='A') fz = FANGZHEN.wu[0]; // 开拓+激进+武略 -> 河东（样板）
+    } else {
+      fz = pool[(K==='K'? (A==='A'?0:1) : (A==='A'?2:3)) % pool.length];
+    }
+    shizhi = '兼' + fz.guan;
+    shizhiGrade = fz.guanG;
+    shizhiPlaceFlavor = fz.flavor;
+    const guanType = fz.guan.includes('尹')?'尹':fz.guan.includes('长史')?'长史':'刺史';
+    shizhiKey = guanType;
+    shizhiObj = {
+      title: shizhi,
+      grade: shizhiGrade,
+      duty: `掌${fz.seat}民政、财政与地方治安。${SHIZHI_LOCAL_INFO[guanType].d}`,
+      status: `${fz.name}${fz.flavor}，${SHIZHI_LOCAL_INFO[guanType].s}`,
+      bg: SHIZHI_LOCAL_INFO[guanType].b,
+    };
+    // 使职（地方军政）
+    let fullShizhi;
+    if (power >= 4) fullShizhi = '节度观察处置等使';
+    else if (power === 3) fullShizhi = '节度观察等使';
+    else if (power === 2) fullShizhi = '观察处置等使';
+    else if (power === 1) fullShizhi = (V==='U' ? '防御使' : '团练使');
+    else fullShizhi = '经略使';
+    shizhiList.push('充' + fz.name + fullShizhi);
+  } else {
+    // 中央向
+    if (eunuch){
+      shizhi = '兼内常侍'; // 仅示意，实际以监军使为使职
+    }
+    if (V==='V'){
+      const cList = ['兼中书舍人','兼给事中','兼太常少卿'];
+      shizhi = cList[rank] || cList[0];
+    } else {
+      const cList = ['兼千牛卫中郎将','兼右羽林军将军','兼左金吾卫将军'];
+      shizhi = cList[rank] || cList[0];
+    }
+    shizhiKey = shizhi;
+    shizhiObj = { title: shizhi, ...SHIZHI_CENTRAL_INFO[shizhi] };
+    // 使职（中央差遣）
+    if (eunuch){
+      shizhiList.push('充监军使');
+    } else if (V==='V'){
+      if (power>=4) shizhiList.push('充盐铁转运等使');
+      else if (power===3) shizhiList.push('充度支使');
+      else if (power===2) shizhiList.push('充转运使');
+      else shizhiList.push('充宣慰使');
+    } else {
+      if (power>=4) shizhiList.push('充招讨使');
+      else if (power===3) shizhiList.push('充宣慰使');
+      else if (power===2) shizhiList.push('充安抚使');
+      else shizhiList.push('充宣慰使');
+    }
+  }
+  if (eunuch && C==='L') shizhiList = ['充监军使']; // 地方宦官化亦归监军
+
+  /* (6) 勋官：风险态度(A/P) + 进取方式(K/S) */
+  let xunBase = (K==='K'?2:0) + (A==='A'?2:0) + 1; // K+A=5 K+P=3 S+A=3 S+P=1
+  const xunIdx = clamp(xunBase + (rank===0?-1:0), 0, 5);
+  const xunLadder = ['轻车都尉','上轻车都尉','护军','上护军','柱国','上柱国'];
+  const xunguan = xunLadder[xunIdx];
+
+  /* (7) 爵位 + 食邑：人际模式(D/I) + 忠诚对象(C/L) */
+  let jueBase;
+  if (D==='D' && C==='C') jueBase = 6;
+  else if (D==='D' && C==='L') jueBase = 5;
+  else if (D==='I' && C==='C') jueBase = 4;
+  else jueBase = 3;
+  const jueIdx = clamp(jueBase + (rank===0?-1:0), 0, 6);
+  const jueRank = ['县男','县子','县伯','县侯','县公','郡公','国公'][jueIdx];
+  const jh = hashCode(typeCode + ':' + rank + ':jue');
+  let jue;
+  if (jueRank==='国公') jue = FIEF.guo[jh % FIEF.guo.length] + '国公';            // 如：吴国公（不加“开国”）
+  else if (jueRank==='郡公') jue = FIEF.jun[jh % FIEF.jun.length] + '郡开国公';    // 如：范阳郡开国公
+  else jue = FIEF.xian[jh % FIEF.xian.length] + jueRank.replace('县','县开国');     // 如：鄢陵县开国侯
+  let shiyi = '食邑' + SHIYI[jueRank];
+  if (jueRank==='国公' && rank===2) shiyi = '食邑三千户，食实封五百户';
+  if (noJue){ jue = null; shiyi = null; }  // 位卑而功不显，不封爵、无食邑
+
+  // 组装结衔全称（空缺之层略去）
+  const parts = [sanguan, jianxiao, xianxian, shizhi, shizhiList.join('、'), xunguan, jue, shiyi].filter(Boolean);
+  const fullTitle = parts.join('、');
+
+  return {
+    typeCode, typeName, rankLabel: res.rankLabel, rankTier: rank,
+    sanguan, jianxiao, xianxian, shizhi, shizhiList, xunguan, jue, shiyi, jueRank,
+    fullTitle, eunuch, humble:false, noJue,
+    poles:{K,J,G,W,D,V,A,C},
+    shizhiObj, jianxiaoKey: jianxiao,
+  };
+}
+
+function hashCode(s){ let h=0; for (let i=0;i<s.length;i++){ h = (h*31 + s.charCodeAt(i)) >>> 0; } return h; }
+
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+
+/* ---------- 含义（为何此性格得此衔）生成 ---------- */
+function meaningOf(comp, poles, eunuch){
+  const {K,J,G,W,D,V,A,C} = poles;
+  switch(comp){
+    case '散官':
+      if (W==='W' && A==='A') return '你的事功取向与激进态度，使你崇尚实绩、敢冒风险，散官品级因此偏高。';
+      if (W==='W' && A==='P') return '你重事功而偏审慎，散官品级中上，务实在而不冒进。';
+      if (W==='M' && A==='A') return '你重名节却有进取锐气，散官处于中等，清贵与锐意并存。';
+      return '你重名节且处事审慎，散官虽非极品，却清贵自重，正合你守身如玉的作风。';
+    case '检校官':
+      if (J==='J' && K==='K') return '你集权而开拓，志在更高名位与更大自主权，故检校官至于宰辅层级。';
+      if (J==='J' && K==='S') return '你集权而守成，检校官层次甚高，标示你稳握权柄、资历崇重。';
+      if (J==='F' && K==='K') return '你分权而开拓，检校官中等，标示你进取而有节制。';
+      return '你分权而守成，检校官层次较和缓，标示你资望渐积而不求虚高。';
+    case '宪衔':
+      return G==='G' ? '你刚直不阿、不避权贵，正合宪衔风宪之任，故得御史大夫高位。'
+                    : '你圆融周旋，虽获宪衔而位稍逊，取其灵活进退之意。';
+    case '职事官':
+      if (C==='L') return (V==='U'
+        ? '你的地方忠诚与武略偏好，使你扎根边镇、以驻地为本，故带驻地长官之衔。'
+        : '你的地方忠诚与文治取向，使你治于一地，故带驻地长官之衔。');
+      return (V==='U'
+        ? '你忠于中央而尚武略，故带京中环卫禁军之职。'
+        : '你忠于中央而重文治，故带京中清要文翰之职。');
+    case '使职':
+      if (eunuch) return '你圆融结党、忠于内廷而行事审慎，指向宦官化的监军之路，故得监军使这一特殊结果。';
+      if (C==='L'){
+        const base = (K==='K'?'开拓':'守成') + (J==='J'?'、集权':'、分权') + (A==='A'?'、激进':'、审慎');
+        return `你的${base}取向，共同指向方镇主官这一实权位置，故得此使职。`;
+      }
+      return (V==='U'
+        ? '你尚武略，故得军事类使职差遣。'
+        : '你重文治，故得财计或宣慰类使职差遣。');
+    case '勋官':
+      if (A==='A' && K==='K') return '你的激进与开拓取向，使你倾向于通过军功获取荣誉，故得高位勋官。';
+      if (A==='A' || K==='K') return '你有进取或敢冒险之一面，勋官中等，标示军功与锐意。';
+      return '你审慎守成，勋官层次和缓，标示你不以冒进邀功。';
+    case '爵位':
+      if (D==='D' && C==='C') return '你结党且忠于中央，故得高爵，标示你在朝中的根基与人脉。';
+      if (D==='D' && C==='L') return '你结党而扎根地方，爵位较高，标示你凭人脉与地方实力获封。';
+      if (D==='I' && C==='C') return '你独立而忠于中央，爵位中等，标示你无功不封、清而不党。';
+      return '你独立而不结党，爵位适中有度，标示你凭实绩自立而非攀附邀封。';
+  }
+  return '';
+}
+
+/* ---------- 渲染结果 ---------- */
+function renderResult(res){
+  const g = generateTitle(res);
+  const dims = DIM_ORDER;
+  const rankTxt = (t)=>(t===0?'下档':t===1?'中档':'上档');
+
+  $('resTypeCode').textContent = g.typeCode;
+  $('resRank').textContent = '档位 · ' + g.rankLabel + ' · 显赫' + ['有限','中等','卓著'][g.rankTier];
+  $('resTypeLegend').innerHTML = buildTypeLegend(g, res);
+  $('resFullTitle').textContent = g.fullTitle;
+  const attire = attireConfig(g);
+  $('resAttire').innerHTML = buildAttireSVG(attire);
+  $('resAttireDesc').textContent = buildAttireDesc(g, attire);
+  $('resStructure').innerHTML = buildStructure(g);
+  $('resBrief').textContent = buildBrief(g, res);
+
+  // 各层在结衔中的结构位置（为何按此序排列、各承何用）
+  const ROLE = {
+    sanguan:'结衔之首，定本品、服色与身份底色；品阶愈高，可带之检校、宪衔与使职愈崇。',
+    jianxiao:'列于散官之后，为荣誉性加官，标示资历与政治地位，是中央与方镇之间的一种“信用凭证”。',
+    xianxian:'继检校之后，为风宪加衔，赋予纠弹管内之权，在外任时尤重其威望。',
+    zhishi:'居宪衔之后，为实际职务与驻地，决定你的治所与所掌之具体政务。',
+    shizhi:'结衔的重心所在。所谓“为使则重，为官则轻”，你的实权皆系于此。',
+    xun:'列于使职之后，为酬赏军功的荣誉等级，以“转”计数，标示功勋。',
+    jue:'结衔之末，为荣誉封爵与虚封食邑，标示门第、恩荣与朝廷之优宠。',
+  };
+
+  // 详细解释条目（空缺之层略去）
+  const items = [];
+  const S = SANGUAN_INFO[g.sanguan] || {g:'',d:'',s:'',b:''};
+  items.push(detailItem('一、散官', g.sanguan, S.g, S.d, S.s, meaningOf('散官',g.poles), S.b, ROLE.sanguan));
+  if (g.jianxiao){
+    const JI = JIANXIAO_INFO[g.jianxiao];
+    items.push(detailItem('二、检校官', g.jianxiao, JI.g, JI.d, JI.s, meaningOf('检校官',g.poles), JI.b, ROLE.jianxiao));
+  }
+  if (g.xianxian){
+    const XI = XIANXIAN_INFO[g.xianxian];
+    items.push(detailItem('三、宪衔', g.xianxian, XI.g, XI.d, XI.s, meaningOf('宪衔',g.poles), XI.b, ROLE.xianxian));
+  }
+  const SZ = g.shizhiObj;
+  items.push(detailItem('四、职事官', SZ.title, SZ.grade, SZ.duty, SZ.status, meaningOf('职事官',g.poles), SZ.bg, ROLE.zhishi));
+  // 使职（可能叠加多个）
+  g.shizhiList.forEach(name=>{
+    const pureName = name.replace(/^充/,'');
+    let info = g.humble ? null : SHIZHI_INFO[extractShizhiKey(pureName)];
+    if (!info){ // 卑官幕职：按后缀匹配
+      for (let k=0;k<HUMBLE.muPosts.length;k++){
+        const mp = HUMBLE.muPosts[k];
+        if (pureName.endsWith(mp[0])){ info = {g:'使职无本品', d:mp[1], s:mp[2], b:mp[3]}; break; }
+      }
+    }
+    if (info){
+      items.push(detailItem('五、使职', name, info.g, info.d, info.s, meaningOf('使职',g.poles,g.eunuch), info.b, ROLE.shizhi));
+    }
+  });
+  if (g.xunguan){
+    const XU = XUN_INFO[g.xunguan];
+    items.push(detailItem('六、勋官', g.xunguan, XU.g, XU.d, XU.s, meaningOf('勋官',g.poles), XU.b, ROLE.xun));
+  }
+  if (g.jue){
+    const JUE = JUE_INFO[g.jueRank];
+    items.push(detailItem('七、爵位与食邑', g.jue + '、' + g.shiyi, JUE.g, JUE.d, JUE.s, meaningOf('爵位',g.poles), JUE.b, ROLE.jue));
+  }
+
+  $('resDetail').innerHTML = items.join('');
+  $('resOverall').textContent = buildOverall(g, res);
+  show('result');
+  window.scrollTo({top:0, behavior:'smooth'});
+  try{ localStorage.removeItem('jxx_progress'); }catch(e){}
+}
+
+/* 使职名 -> 关键词提取（处理“节度观察处置等使”等复合名） */
+function extractShizhiKey(name){
+  if (name.includes('节度观察处置')) return '节度使'; // 复合使职取首职为表
+  if (name.includes('节度观察')) return '节度使';
+  if (name.includes('观察处置')) return '观察使';
+  if (name.includes('盐铁转运')) return '盐铁使';
+  if (name.includes('节度')) return '节度使';
+  if (name.includes('观察')) return '观察使';
+  if (name.includes('处置')) return '处置使';
+  if (name.includes('防御')) return '防御使';
+  if (name.includes('团练')) return '团练使';
+  if (name.includes('经略')) return '经略使';
+  if (name.includes('盐铁')) return '盐铁使';
+  if (name.includes('度支')) return '度支使';
+  if (name.includes('转运')) return '转运使';
+  if (name.includes('招讨')) return '招讨使';
+  if (name.includes('宣慰')) return '宣慰使';
+  if (name.includes('安抚')) return '安抚使';
+  if (name.includes('监军')) return '监军使';
+  return name;
+}
+
+function detailItem(no, title, grade, duty, status, meaning, bg, role){
+  return `<details class="item" ${no==='一、散官'?'open':''}>
+    <summary>${no}：${title}<span class="ig">${grade||''}</span></summary>
+    <div class="body">
+      <div class="field"><b>品级</b>${grade||'（使职无本品，权力依附于所加使名）'}</div>
+      <div class="field"><b>职能</b>${duty}</div>
+      <div class="field"><b>地位</b>${status}</div>
+      <div class="field"><b>含义</b>${meaning}</div>
+      <div class="field"><b>制度背景</b>${bg}</div>
+      ${role?`<div class="field"><b>结构位置</b>${role}</div>`:''}
+    </div>
+  </details>`;
+}
+
+/* ---------- 结衔释义：结构总览 ---------- */
+function buildStructure(g){
+  const all = [
+    ['散官', g.sanguan, '定本品阶与服色，是身份底色'],
+    ['检校官', g.jianxiao, '荣誉加官，标资历、地位'],
+    ['宪衔', g.xianxian, '风宪加衔，掌纠弹、重威望'],
+    ['职事官', g.shizhi, '实际职务与驻地'],
+    ['使职', g.shizhiList.join('、'), '实权所在，“为使则重”'],
+    ['勋官', g.xunguan, '酬赏军功，以“转”计'],
+    ['爵位', g.jue, '荣誉封爵'],
+    ['食邑', g.shiyi, '虚封食邑，示恩荣'],
+  ].filter(r=>r[1]);
+  const cn = ['一','二','三','四','五','六','七','八','九'];
+  const list = all.map((r,i)=>
+    `<div class="layer-row"><span class="lr-no">第${cn[i]}层</span><span class="lr-name">${r[0]}</span><span class="lr-val">${r[1]}</span><span class="lr-role">${r[2]}</span></div>`
+  ).join('');
+  const lead = g.humble
+    ? '你这道结衔品秩低微。唐代低级官吏亦须“结衔”：散官定其身份，职事官与幕职定其职守；因位卑而功不显，通常不带检校、宪衔、勋官与封爵。'
+    : '中晚唐官员常一身兼数衔。一纸告身自上而下，由虚而实、由阶而职依次连缀；读你这道结衔，可依下列诸层来看：';
+  return `<p class="lead">${lead}</p>${list}`;
+}
+
+/* ---------- 性格类型代号释义（MBTI 式比例条） ---------- */
+function buildTypeLegend(g, res){
+  const o = (res && res.orient) ? res.orient : null;
+  const rows = DIM_ORDER.map(d=>{
+    const ent = o ? o[d.pair] : null;
+    const a = ent ? (ent.a||0) : 0, b = ent ? (ent.b||0) : 0, t = a+b;
+    let pa = t>0 ? Math.round(a/t*100) : 50;
+    if (pa>100) pa=100; if (pa<0) pa=0;
+    const pb = 100-pa;
+    const aWin = pa>=pb;
+    const winLetter = aWin?d.a:d.b, winName = aWin?d.aName:d.bName, winPct = aWin?pa:pb;
+    const loseLetter = aWin?d.b:d.a, loseName = aWin?d.bName:d.aName, losePct = aWin?pb:pa;
+    return `<div class="dim-row">
+      <div class="dim-name">${d.name}</div>
+      <div class="dim-line">
+        <span class="dim-win">${winLetter} ${winName} <b>${winPct}%</b></span>
+        <span class="dim-bar"><i style="width:${winPct}%"></i></span>
+        <span class="dim-lose"><b>${losePct}%</b> ${loseLetter} ${loseName}</span>
+      </div>
+    </div>`;
+  }).join('');
+  return `<p class="tl-lead">代号中每个字母代表你在某一维度上的取向：前四位为「进取·权力·行事·价值」，后四位为「人际·知识·风险·忠诚」。条状示各维倾向比例，赭色为你胜出的一极：</p>${rows}`;
+}
+
+/* ---------- 冠服图：依品阶生成服色、腰带、鱼袋 ---------- */
+function parseRank(s){ if(!s) return null; const m=String(s).match(/([一二三四五六七八九])品/); return m ? ('一二三四五六七八九'.indexOf(m[1])+1) : null; }
+
+function attireConfig(g){
+  const ranks = [];
+  const push = s => { const r = parseRank(s); if (r) ranks.push(r); };
+  push((SANGUAN_INFO[g.sanguan]||{}).g);
+  if (g.jianxiao && JIANXIAO_INFO[g.jianxiao]) push(JIANXIAO_INFO[g.jianxiao].g);
+  if (g.xianxian && XIANXIAN_INFO[g.xianxian]) push(XIANXIAN_INFO[g.xianxian].g);
+  if (g.shizhiObj) push(g.shizhiObj.grade);
+  const best = ranks.length ? Math.min.apply(null, ranks) : 9; // 数值最小者品秩最高
+  let colorName, robe, robeDark, robeLight;
+  if (best<=3){ colorName='紫'; robe='#5e2b8b'; robeDark='#3d1e57'; robeLight='#9b74bd'; }
+  else if (best<=5){ colorName='绯'; robe='#b8352c'; robeDark='#862018'; robeLight='#df7a70'; }
+  else if (best<=7){ colorName='绿'; robe='#2f7d4f'; robeDark='#1d5735'; robeLight='#67b184'; }
+  else { colorName='青'; robe='#2b6c8f'; robeDark='#1a4a63'; robeLight='#6aa2bc'; }
+  let fish=null, fishColor=null, fishName=null;
+  if (best<=3){ fish='f'; fishColor='#d8b53a'; fishName='金鱼袋'; }
+  else if (best<=5){ fish='f'; fishColor='#c4c8cc'; fishName='银鱼袋'; }
+  let belt, beltDark, beltName;
+  if (best<=3){ belt='#c9a227'; beltDark='#9a7c1e'; beltName='金带'; }
+  else if (best<=5){ belt='#6b4a2b'; beltDark='#4d341d'; beltName='犀带'; }
+  else { belt='#b87333'; beltDark='#8a5522'; beltName='铜带'; }
+  return { best, colorName, robe, robeDark, robeLight, fish, fishColor, fishName, belt, beltDark, beltName };
+}
+
+function buildAttireSVG(c){
+  const trim = c.best<=3 ? '#e7cf86' : c.best<=5 ? '#f0e2bd' : '#e8dcc0';
+  const fishLight = c.fishColor==='#d8b53a' ? '#f4e08e' : '#eef1f4';
+  const fishDark  = c.fishColor==='#d8b53a' ? '#a8871f' : '#9aa0a6';
+  const fish = c.fish ? `
+    <line x1="176" y1="212" x2="176" y2="224" stroke="${c.beltDark}" stroke-width="2.2"/>
+    <g transform="translate(176,242)">
+      <path d="M-9 -6 C-12 5 -8 15 0 19 C8 15 12 5 9 -6 Z" fill="url(#fishG)" stroke="${fishDark}" stroke-width="1"/>
+      <path d="M-8 4 L-24 -7 L-22 17 Z" fill="url(#fishG)" stroke="${fishDark}" stroke-width="1"/>
+      <path d="M-3 -8 C1 0 1 10 -3 17" fill="none" stroke="${fishDark}" stroke-width="0.9" opacity=".6"/>
+      <path d="M5 -7 C8 0 8 9 5 16" fill="none" stroke="${fishDark}" stroke-width="0.9" opacity=".5"/>
+      <circle cx="4" cy="-3" r="1.9" fill="#2a231a"/>
+    </g>` : '';
+  return `<svg viewBox="0 0 260 360" width="260" height="360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="冠服图">
+    <defs>
+      <radialGradient id="bgG" cx="50%" cy="42%" r="62%">
+        <stop offset="0" stop-color="#fdf8ea"/><stop offset="1" stop-color="#eee1c2" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="medG" cx="50%" cy="40%" r="60%">
+        <stop offset="0" stop-color="#fefaf0"/><stop offset="1" stop-color="#f0e5ca"/>
+      </radialGradient>
+      <linearGradient id="robeG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${c.robe}"/><stop offset="0.5" stop-color="${c.robe}"/><stop offset="1" stop-color="${c.robeDark}"/>
+      </linearGradient>
+      <linearGradient id="sleeveG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${c.robe}"/><stop offset="1" stop-color="${c.robeDark}"/>
+      </linearGradient>
+      <linearGradient id="skinG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f8e1bd"/><stop offset="1" stop-color="#e6c193"/>
+      </linearGradient>
+      <linearGradient id="beltG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${c.belt}"/><stop offset="1" stop-color="${c.beltDark}"/>
+      </linearGradient>
+      <linearGradient id="fishG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${fishLight}"/><stop offset="1" stop-color="${c.fishColor||'#ccc'}"/>
+      </linearGradient>
+      <pattern id="tuantuan" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(14)">
+        <circle cx="18" cy="18" r="3.2" fill="${c.robeLight}" opacity="0.55"/>
+        <circle cx="18" cy="18" r="7.5" fill="none" stroke="${c.robeLight}" stroke-width="1" opacity="0.42"/>
+        <circle cx="0" cy="0" r="2.1" fill="${c.robeLight}" opacity="0.45"/>
+        <circle cx="36" cy="0" r="2.1" fill="${c.robeLight}" opacity="0.45"/>
+        <circle cx="0" cy="36" r="2.1" fill="${c.robeLight}" opacity="0.45"/>
+        <circle cx="36" cy="36" r="2.1" fill="${c.robeLight}" opacity="0.45"/>
+      </pattern>
+      <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3a2a10" flood-opacity="0.22"/>
+      </filter>
+      <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
+        <feDropShadow dx="0" dy="2" stdDeviation="2.4" flood-color="#000" flood-opacity="0.26"/>
+      </filter>
+    </defs>
+
+    <rect width="260" height="360" fill="url(#bgG)"/>
+    <circle cx="130" cy="156" r="118" fill="url(#medG)" stroke="${trim}" stroke-width="1.6"/>
+    <circle cx="130" cy="156" r="118" fill="none" stroke="${c.robe}" stroke-width="6" opacity="0.10"/>
+    <circle cx="130" cy="156" r="110" fill="none" stroke="${trim}" stroke-width="2.2" stroke-dasharray="0.1 10" stroke-linecap="round" opacity="0.75"/>
+    <g fill="none" stroke="${c.robe}" opacity="0.3" stroke-width="1.2">
+      <path d="M42 250 q22 -15 44 0 t44 0 t44 0 t44 0"/>
+      <path d="M42 62 q22 -15 44 0 t44 0 t44 0 t44 0"/>
+    </g>
+    <ellipse cx="130" cy="333" rx="80" ry="11" fill="#3a2a10" opacity="0.13"/>
+
+    <rect x="117" y="84" width="26" height="40" rx="10" fill="#e0bd8f"/>
+    <path d="M120 92 q11 12 22 0" fill="#cfa473" opacity=".55"/>
+
+    <path d="M86 130 C56 146 40 194 42 238 C44 262 60 272 76 262 C86 256 92 232 96 200 Z" fill="url(#sleeveG)" stroke="${c.robeDark}" stroke-width="1.3" filter="url(#soft)"/>
+    <path d="M174 130 C204 146 220 194 218 238 C216 262 200 272 184 262 C174 256 168 232 164 200 Z" fill="url(#sleeveG)" stroke="${c.robeDark}" stroke-width="1.3" filter="url(#soft)"/>
+    <path d="M76 262 C86 244 91 220 94 196" fill="none" stroke="${c.robeDark}" stroke-width="1" opacity=".4"/>
+    <path d="M184 262 C174 244 169 220 166 196" fill="none" stroke="${c.robeDark}" stroke-width="1" opacity=".4"/>
+    <path d="M46 234 q24 -6 46 -2" fill="none" stroke="${trim}" stroke-width="3" opacity=".5"/>
+    <path d="M168 232 q24 -4 46 2" fill="none" stroke="${trim}" stroke-width="3" opacity=".5"/>
+
+    <path d="M130 108 C102 108 86 122 80 144 L58 296 C56 312 66 320 80 320 L180 320 C194 320 204 312 202 296 L180 144 C174 122 158 108 130 108 Z"
+      fill="url(#robeG)" stroke="${c.robeDark}" stroke-width="1.6" filter="url(#soft)"/>
+    <path d="M130 108 C102 108 86 122 80 144 L58 296 C56 312 66 320 80 320 L180 320 C194 320 204 312 202 296 L180 144 C174 122 158 108 130 108 Z"
+      fill="url(#tuantuan)" opacity="0.5"/>
+    <path d="M104 132 L95 314" fill="none" stroke="${c.robeDark}" stroke-width="1" opacity=".3"/>
+    <path d="M156 132 L165 314" fill="none" stroke="${c.robeDark}" stroke-width="1" opacity=".3"/>
+    <path d="M130 150 L130 318" fill="none" stroke="${c.robeDark}" stroke-width="1" opacity=".18"/>
+    <path d="M60 300 Q130 322 200 300" fill="none" stroke="${trim}" stroke-width="4" opacity=".6"/>
+
+    <rect x="110" y="206" width="40" height="108" rx="5" fill="${c.robeDark}" opacity=".45"/>
+    <rect x="110" y="206" width="40" height="108" rx="5" fill="none" stroke="${trim}" stroke-width="1.6" opacity=".82"/>
+    <circle cx="130" cy="228" r="7" fill="none" stroke="${trim}" stroke-width="1.4" opacity=".8"/>
+    <path d="M130 236 v58" stroke="${trim}" stroke-width="1.2" opacity=".55"/>
+
+    <path d="M102 116 L130 200 L158 116" fill="none" stroke="#f7f1e2" stroke-width="13" stroke-linejoin="round" opacity=".95"/>
+    <path d="M100 118 L130 206 L160 118" fill="none" stroke="${c.robeDark}" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M105 122 L130 190 L155 122" fill="none" stroke="${trim}" stroke-width="2.6"/>
+
+    <rect x="66" y="196" width="128" height="19" rx="4" fill="url(#beltG)" stroke="${c.beltDark}" stroke-width="1"/>
+    <g fill="${c.beltDark}">
+      <rect x="80" y="200" width="13" height="13" rx="2"/>
+      <rect x="99" y="200" width="13" height="13" rx="2"/>
+      <rect x="148" y="200" width="13" height="13" rx="2"/>
+      <rect x="167" y="200" width="13" height="13" rx="2"/>
+    </g>
+    <rect x="121" y="197" width="18" height="18" rx="3" fill="${trim}" stroke="${c.beltDark}" stroke-width="1"/>
+    <circle cx="130" cy="206" r="4" fill="none" stroke="${c.beltDark}" stroke-width="1"/>
+    <g transform="translate(74,216)">
+      <path d="M0 0 C-9 22 -7 48 4 70" fill="none" stroke="${c.robeDark}" stroke-width="5" opacity=".8"/>
+      <path d="M0 0 C-9 22 -7 48 4 70" fill="none" stroke="${trim}" stroke-width="1.3" opacity=".9"/>
+      <circle cx="0" cy="0" r="4.2" fill="${trim}" stroke="${c.beltDark}" stroke-width=".8"/>
+    </g>
+    ${fish}
+
+    <ellipse cx="130" cy="62" rx="31" ry="34" fill="url(#skinG)"/>
+    <ellipse cx="146" cy="70" rx="12" ry="19" fill="#e0ac7e" opacity=".28"/>
+    <ellipse cx="99" cy="66" rx="5.5" ry="9.5" fill="url(#skinG)"/>
+    <ellipse cx="161" cy="66" rx="5.5" ry="9.5" fill="url(#skinG)"/>
+    <path d="M100 44 C98 60 100 76 106 82 C102 68 104 55 110 42 Z" fill="#1b1b1b"/>
+    <path d="M160 44 C162 60 160 76 154 82 C158 68 156 55 150 42 Z" fill="#1b1b1b"/>
+    <path d="M111 58 q9 -6 18 0" fill="none" stroke="#3a2f25" stroke-width="2" stroke-linecap="round"/>
+    <path d="M131 58 q9 -6 18 0" fill="none" stroke="#3a2f25" stroke-width="2" stroke-linecap="round"/>
+    <path d="M113 66 q6.5 6 13 0" fill="none" stroke="#2a231a" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M134 66 q6.5 6 13 0" fill="none" stroke="#2a231a" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="119.5" cy="67" r="1.3" fill="#2a231a"/>
+    <circle cx="140.5" cy="67" r="1.3" fill="#2a231a"/>
+    <path d="M130 68 v8 q-3 3 -7 2" fill="none" stroke="#cb9c6c" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M122 84 q8 5 16 0" fill="none" stroke="#a85a4a" stroke-width="2" stroke-linecap="round"/>
+    <path d="M122 88 q8 11 16 0 q-8 5 -16 0 Z" fill="#2a231a" opacity=".72"/>
+
+    <ellipse cx="130" cy="33" rx="20" ry="12" fill="#221d17"/>
+    <path d="M100 54 C100 19 160 19 160 54 C160 63 100 63 100 54 Z" fill="#2a251d"/>
+    <path d="M100 54 C100 19 160 19 160 54" fill="none" stroke="#100e0b" stroke-width="1" opacity=".45"/>
+    <path d="M104 40 C110 30 150 30 156 40" fill="none" stroke="#3a332a" stroke-width="1.2" opacity=".7"/>
+    <path d="M102 46 C84 43 62 52 50 68 C70 63 90 59 104 57 Z" fill="#2a251d"/>
+    <path d="M158 46 C176 43 198 52 210 68 C190 63 170 59 156 57 Z" fill="#2a251d"/>
+    <path d="M60 60 C74 58 90 57 102 57" fill="none" stroke="#3a332a" stroke-width="1" opacity=".55"/>
+    <path d="M158 57 C170 57 186 58 200 60" fill="none" stroke="#3a332a" stroke-width="1" opacity=".55"/>
+    <path d="M112 44 q18 -9 36 0" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+
+    <path d="M88 204 C102 202 112 198 121 191" stroke="${c.robeDark}" stroke-width="27" stroke-linecap="round" fill="none" filter="url(#soft)"/>
+    <path d="M88 204 C102 202 112 198 121 191" stroke="url(#sleeveG)" stroke-width="22" stroke-linecap="round" fill="none"/>
+    <path d="M172 204 C158 202 148 198 139 191" stroke="${c.robeDark}" stroke-width="27" stroke-linecap="round" fill="none" filter="url(#soft)"/>
+    <path d="M172 204 C158 202 148 198 139 191" stroke="url(#sleeveG)" stroke-width="22" stroke-linecap="round" fill="none"/>
+    <rect x="120" y="112" width="20" height="92" rx="7" fill="#f0e5c8" stroke="#cbb98a" stroke-width="1.2" transform="rotate(-6 130 158)"/>
+    <ellipse cx="118" cy="192" rx="12" ry="9" fill="url(#skinG)" stroke="#dcb98c" stroke-width=".8" filter="url(#soft2)"/>
+    <ellipse cx="141" cy="192" rx="12" ry="9" fill="url(#skinG)" stroke="#dcb98c" stroke-width=".8" filter="url(#soft2)"/>
+    <path d="M112 190 q6 3 11 -1" fill="none" stroke="#dcb98c" stroke-width="1" opacity=".7"/>
+    <path d="M147 190 q-6 3 -11 -1" fill="none" stroke="#dcb98c" stroke-width="1" opacity=".7"/>
+  </svg>`;
+}
+
+
+function buildAttireDesc(g, c){
+  const rankTxt = c.best<=3 ? '三品以上' : c.best<=5 ? '四、五品' : c.best<=7 ? '六、七品' : '八、九品';
+  const colorBg = c.colorName==='紫' ? '紫为三品以上之服色，最为尊贵。'
+    : c.colorName==='绯' ? '绯（朱）为四、五品之服色。'
+    : c.colorName==='绿' ? '绿为六、七品之服色。'
+    : '青为八、九品之服色，最为低微。';
+  const fishTxt = c.fish ? `佩${c.fishName}（系于腰间带下，以别身份）` : '不佩鱼袋（六品以下无鱼袋）';
+  return `本品约在${rankTxt}，着${c.colorName}服，束${c.beltName}，${fishTxt}，头戴幞头，手持笏板。${colorBg}中晚唐官员的服色、腰带材质与鱼袋（金、银之别）皆本于品阶，正是“结衔”在外观上的直接体现。`;
+}
+
+/* ---------- 简要解释 ---------- */
+function buildBrief(g, res){
+  const {K,J,G,W,D,V,A,C} = g.poles;
+  const locus = C==='L' ? '地方' : '中央';
+  const civil = V==='V' ? '文' : '武';
+  const value = W==='W' ? '务实' : '清贵';
+  const social = D==='D' ? '结党' : '独立';
+  if (g.humble){
+    return `你的性格类型为「${g.typeCode}」——${g.typeName}。在当前推演中，你位卑职小，结衔以低阶散官与州县幕职为主，不带检校、宪衔、勋官与封爵。你尚属${civil}吏初阶、${locus}任职，须凭资历与事功循序而进，方有显达之望。`;
+  }
+  const jueTxt = g.jue ? '' : '因位卑功微，你未获封爵、亦无食邑。';
+  return `你的性格类型为「${g.typeCode}」——${g.typeName}。在中晚唐官僚体系中，你的结衔以${g.eunuch?'内廷监军':'方镇与使职'}为核心，${C==='L'?'兼带高位检校官与宪衔，威望与实权并重':'身处中央，掌差遣实职'}。你属于${civil}臣、${value}一路，${social}而不${D==='D'?'孤立':'攀附'}。你的权力基础在${locus}，风险也正来自${locus}与${C==='L'?'中央':'地方'}之间的张力。${jueTxt}`;
+}
+
+/* ---------- 总体评价 ---------- */
+function buildOverall(g, res){
+  const {K,J,G,W,D,V,A,C} = g.poles;
+  const p = [];
+  if (g.humble){
+    p.push('你是一位初入仕途的州县小吏或幕府下僚，位卑职小。在中晚唐，如此位阶者多由科举、门荫或方镇辟召入仕，初授县尉、主簿、参军之职，或入幕为巡官、判官、掌书记。');
+    p.push('你尚无显赫的检校、宪衔，也无勋官封爵，权力与声望皆有限。你的前程取决于资历、人脉、机遇与自身进取——若得长官赏识、上司荐举，或逢军功、要缺，方能渐次升迁。');
+    p.push((K==='K' ? '你有开拓进取之心，或能抓住机遇、步步升迁。' : '你偏于守成审慎，仕途或较平缓，宜积资循序。') + (G==='G' ? '你刚直敢言，或不容于上官，宜稍敛锋芒。' : '你善于周旋，或能左右逢源，然亦须守正。'));
+    p.push('若置于真实历史中，你接近中晚唐那些初仕州县、寄身幕府的低级文吏与幕僚——他们是庞大官僚体系的基座，其中少数人得以脱颖而出，多数则终老于卑职。');
+    return p.join('');
+  }
+  if (g.eunuch){
+    p.push('你的圆融、结党、忠于内廷与审慎，使你走向了一条“宦官化”的特殊道路。在中晚唐，监军使以朝廷名义钳制方镇，看似无兵无地，实则隐握生杀之权。');
+    p.push('你的权力基础在内廷与皇帝的信任，风险也在此——一旦内廷倾轧、权阉失势，你亦难逃株连。');
+    p.push('若置于真实历史中，你接近那些以近侍之身监临诸镇、翻手为云覆手为雨的监军宦官类型——非领兵之帅，而操兵权之柄。');
+    return p.join('');
+  }
+  if (C==='L'){
+    p.push(`你是一位扎根地方、手握军政实权的方镇强臣。你的权力基础在方镇，威望来自军功与宪衔，地位由高位检校官加以确认。`);
+    p.push('你与中央的关系微妙：朝廷既需借重你镇守一方，又忌惮你的实力。' + (D==='I'?'你的独立取向使你不愿依附朋党，朝中可能缺乏奥援，故须在地方不断巩固势力。':'你善于结党，或能于朝中结纳奥援，但党附亦可能引火烧身。'));
+    p.push((A==='A'?'你的激进进取使你敢冒风险、先发制人，但也可能在关键处失之于躁进。':'你的审慎使你稳扎稳打，却也可能错失进取之机。') + (G==='G'?'你刚直敢言，军中或誉你为直臣，朝堂或忌你为异己。':'你圆融周旋，能于各方之间游刃，却也易失于无定见。'));
+    p.push('若置于真实历史中，你接近中晚唐那些以军功起家、割据一方的节度使类型——既非纯粹的忠臣，也非公然的反叛者，而是在中央与地方、忠诚与自主之间不断博弈的边镇强人。');
+    p.push('你的风险在于：一旦中央决心削藩，或管内发生变乱，你的权力基础可能迅速动摇。你的机会在于：若能维持军心与地方秩序，便可在乱世中长久立足。');
+  } else {
+    p.push(`你是一位身处中央、${V==='V'?'以文翰经世':'以武略效命'}的${W==='W'?'务实':'清贵'}之臣。你的权力基础在朝堂与皇帝信任，而非地方兵权。`);
+    p.push('你的结衔以中央职事官与差遣使职为核心，检校、宪衔标示资望。' + (G==='G'?'你刚直敢谏，或为清流所推、权贵所忌。':'你圆融周旋，能于朝堂党争中游走，却也可能因此失节。'));
+    p.push((A==='A'?'你激进而敢为，或能于政争中一举成功，亦可能因此覆败。':'你审慎而持重，可保安稳，却也可能错失进取之机。'));
+    p.push('若置于真实历史中，你接近中晚唐那些供职台省、奔走于天子与藩镇之间的中央官僚——或以文翰清望立身，或以财计差遣掌国用，或以禁军宿卫近君侧。');
+    p.push('你的风险在于：中晚唐朝局反复，党争与宦官倾轧不断，缺乏地方兵权奥援的你，一旦失势便难自全。你的机会在于：若能得君主信任、执掌要职，亦可权倾一时。');
+  }
+  return p.join('');
+}
+
+/* ---------- 复制 / 重新测试 ---------- */
+$('retestBtn').addEventListener('click', ()=>{ show('cover'); initCover(); });
+$('copyBtn').addEventListener('click', ()=>{
+  const code = $('resTypeCode').textContent;
+  const full = $('resFullTitle').textContent;
+  const brief = $('resBrief').textContent;
+  const text = `【君居何位 · 测测你在唐朝能当什么官】\n性格类型：${code}\n结衔全称：${full}\n简要解释：${brief}`;
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ $('copyBtn').textContent='已复制 ✓'; setTimeout(()=>$('copyBtn').textContent='复制结衔文本',1500); });
+  } else {
+    const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    $('copyBtn').textContent='已复制 ✓'; setTimeout(()=>$('copyBtn').textContent='复制结衔文本',1500);
+  }
+});
+
+/* ---------- 初始化 ---------- */
+initCover();
+</script>
+</body>
+</html>
